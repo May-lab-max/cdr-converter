@@ -256,7 +256,7 @@
     });
 
     // ---- footer + initial state ----
-    $('foot').innerHTML = pairs.length + ' pairs · updated ' + rel(rates.generated_at)
+    $('foot').innerHTML = 'Updated ' + rel(rates.generated_at)
       + (usdcad ? ' · USD/CAD ' + usdcad.toFixed(4) : '')
       + '<br>CDRs are CAD-hedged — spot FX doesn’t apply.';
 
