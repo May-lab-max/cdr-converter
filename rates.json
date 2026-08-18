@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-18T03:57 UTC",
-  "usdcad_spot": 1.38723,
+  "generated_at": "2026-08-18T03:58 UTC",
+  "usdcad_spot": 1.38726,
   "pairs": {
     "AAPL.TO": {
       "cad_symbol": "AAPL.TO",
@@ -287,6 +287,19 @@
       "cad_price": 20.97,
       "us_price": 337.88,
       "k": 0.062063,
+      "price_date": "2026-08-17"
+    },
+    "HON.TO": {
+      "cad_symbol": "HON.TO",
+      "us_symbol": "HON",
+      "type": "cdr",
+      "name": "Honeywell",
+      "aliases": [
+        "HON.NE"
+      ],
+      "cad_price": 12.99,
+      "us_price": 229.45,
+      "k": 0.056614,
       "price_date": "2026-08-17"
     },
     "IBM.TO": {
