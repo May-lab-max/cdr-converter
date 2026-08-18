@@ -1,0 +1,623 @@
+{
+  "_comment": "Seed universe for the standalone CDR/USD converter. CDRs migrated from Cboe Canada (.NE) to TSX (.TO) — .TO is the primary tape (higher volume); .NE spellings kept as aliases. BAC/ORCL/V remain .NE-only. Pairs that fail to fetch are dropped with a warning at update time, so this list can be generous.",
+  "pairs": [
+    {
+      "cad": "AAPL.TO",
+      "us": "AAPL",
+      "type": "cdr",
+      "name": "Apple",
+      "aliases": [
+        "AAPL.NE"
+      ]
+    },
+    {
+      "cad": "ABBV.TO",
+      "us": "ABBV",
+      "type": "cdr",
+      "name": "AbbVie",
+      "aliases": [
+        "ABBV.NE"
+      ]
+    },
+    {
+      "cad": "ABNB.TO",
+      "us": "ABNB",
+      "type": "cdr",
+      "name": "Airbnb",
+      "aliases": [
+        "ABNB.NE"
+      ]
+    },
+    {
+      "cad": "ADBE.TO",
+      "us": "ADBE",
+      "type": "cdr",
+      "name": "Adobe",
+      "aliases": [
+        "ADBE.NE"
+      ]
+    },
+    {
+      "cad": "AMD.TO",
+      "us": "AMD",
+      "type": "cdr",
+      "name": "Advanced Micro Devices",
+      "aliases": [
+        "AMD.NE"
+      ]
+    },
+    {
+      "cad": "AMAT.TO",
+      "us": "AMAT",
+      "type": "cdr",
+      "name": "Applied Materials",
+      "aliases": [
+        "AMAT.NE"
+      ]
+    },
+    {
+      "cad": "AMZN.TO",
+      "us": "AMZN",
+      "type": "cdr",
+      "name": "Amazon",
+      "aliases": [
+        "AMZN.NE"
+      ]
+    },
+    {
+      "cad": "AVGO.TO",
+      "us": "AVGO",
+      "type": "cdr",
+      "name": "Broadcom",
+      "aliases": [
+        "AVGO.NE"
+      ]
+    },
+    {
+      "cad": "AXP.TO",
+      "us": "AXP",
+      "type": "cdr",
+      "name": "American Express",
+      "aliases": [
+        "AXP.NE"
+      ]
+    },
+    {
+      "cad": "BA.TO",
+      "us": "BA",
+      "type": "cdr",
+      "name": "Boeing",
+      "aliases": [
+        "BA.NE"
+      ]
+    },
+    {
+      "cad": "BAC.NE",
+      "us": "BAC",
+      "type": "cdr",
+      "name": "Bank of America"
+    },
+    {
+      "cad": "BRK.TO",
+      "us": "BRK-B",
+      "type": "cdr",
+      "name": "Berkshire Hathaway",
+      "aliases": [
+        "BRKB",
+        "BRK.B",
+        "BRK.NE"
+      ]
+    },
+    {
+      "cad": "COIN.TO",
+      "us": "COIN",
+      "type": "cdr",
+      "name": "Coinbase",
+      "aliases": [
+        "COIN.NE"
+      ]
+    },
+    {
+      "cad": "COST.TO",
+      "us": "COST",
+      "type": "cdr",
+      "name": "Costco",
+      "aliases": [
+        "COST.NE"
+      ]
+    },
+    {
+      "cad": "CRM.TO",
+      "us": "CRM",
+      "type": "cdr",
+      "name": "Salesforce",
+      "aliases": [
+        "CRM.NE"
+      ]
+    },
+    {
+      "cad": "CSCO.TO",
+      "us": "CSCO",
+      "type": "cdr",
+      "name": "Cisco",
+      "aliases": [
+        "CSCO.NE"
+      ]
+    },
+    {
+      "cad": "CVS.TO",
+      "us": "CVS",
+      "type": "cdr",
+      "name": "CVS Health",
+      "aliases": [
+        "CVS.NE"
+      ]
+    },
+    {
+      "cad": "DIS.TO",
+      "us": "DIS",
+      "type": "cdr",
+      "name": "Disney",
+      "aliases": [
+        "DIS.NE"
+      ]
+    },
+    {
+      "cad": "GE.TO",
+      "us": "GE",
+      "type": "cdr",
+      "name": "GE Aerospace",
+      "aliases": [
+        "GE.NE"
+      ]
+    },
+    {
+      "cad": "GOOG.TO",
+      "us": "GOOG",
+      "type": "cdr",
+      "name": "Alphabet",
+      "aliases": [
+        "GOOGL",
+        "GOOG.NE"
+      ]
+    },
+    {
+      "cad": "GS.TO",
+      "us": "GS",
+      "type": "cdr",
+      "name": "Goldman Sachs",
+      "aliases": [
+        "GS.NE"
+      ]
+    },
+    {
+      "cad": "HD.TO",
+      "us": "HD",
+      "type": "cdr",
+      "name": "Home Depot",
+      "aliases": [
+        "HD.NE"
+      ]
+    },
+    {
+      "cad": "HON.TO",
+      "us": "HON",
+      "type": "cdr",
+      "name": "Honeywell",
+      "aliases": [
+        "HON.NE"
+      ]
+    },
+    {
+      "cad": "IBM.TO",
+      "us": "IBM",
+      "type": "cdr",
+      "name": "IBM",
+      "aliases": [
+        "IBM.NE"
+      ]
+    },
+    {
+      "cad": "INTC.TO",
+      "us": "INTC",
+      "type": "cdr",
+      "name": "Intel",
+      "aliases": [
+        "INTC.NE"
+      ]
+    },
+    {
+      "cad": "JNJ.TO",
+      "us": "JNJ",
+      "type": "cdr",
+      "name": "Johnson & Johnson",
+      "aliases": [
+        "JNJ.NE"
+      ]
+    },
+    {
+      "cad": "JPM.TO",
+      "us": "JPM",
+      "type": "cdr",
+      "name": "JPMorgan Chase",
+      "aliases": [
+        "JPM.NE"
+      ]
+    },
+    {
+      "cad": "LLY.TO",
+      "us": "LLY",
+      "type": "cdr",
+      "name": "Eli Lilly",
+      "aliases": [
+        "LLY.NE"
+      ]
+    },
+    {
+      "cad": "MA.TO",
+      "us": "MA",
+      "type": "cdr",
+      "name": "Mastercard",
+      "aliases": [
+        "MA.NE"
+      ]
+    },
+    {
+      "cad": "MCD.TO",
+      "us": "MCD",
+      "type": "cdr",
+      "name": "McDonald's",
+      "aliases": [
+        "MCD.NE"
+      ]
+    },
+    {
+      "cad": "META.TO",
+      "us": "META",
+      "type": "cdr",
+      "name": "Meta Platforms",
+      "aliases": [
+        "META.NE"
+      ]
+    },
+    {
+      "cad": "MRK.TO",
+      "us": "MRK",
+      "type": "cdr",
+      "name": "Merck",
+      "aliases": [
+        "MRK.NE"
+      ]
+    },
+    {
+      "cad": "MSFT.TO",
+      "us": "MSFT",
+      "type": "cdr",
+      "name": "Microsoft",
+      "aliases": [
+        "MSFT.NE"
+      ]
+    },
+    {
+      "cad": "MU.TO",
+      "us": "MU",
+      "type": "cdr",
+      "name": "Micron",
+      "aliases": [
+        "MU.NE"
+      ]
+    },
+    {
+      "cad": "NFLX.TO",
+      "us": "NFLX",
+      "type": "cdr",
+      "name": "Netflix",
+      "aliases": [
+        "NFLX.NE"
+      ]
+    },
+    {
+      "cad": "NKE.TO",
+      "us": "NKE",
+      "type": "cdr",
+      "name": "Nike",
+      "aliases": [
+        "NKE.NE"
+      ]
+    },
+    {
+      "cad": "NVDA.TO",
+      "us": "NVDA",
+      "type": "cdr",
+      "name": "NVIDIA",
+      "aliases": [
+        "NVDA.NE"
+      ]
+    },
+    {
+      "cad": "ORCL.NE",
+      "us": "ORCL",
+      "type": "cdr",
+      "name": "Oracle"
+    },
+    {
+      "cad": "PEP.TO",
+      "us": "PEP",
+      "type": "cdr",
+      "name": "PepsiCo",
+      "aliases": [
+        "PEP.NE"
+      ]
+    },
+    {
+      "cad": "PFE.TO",
+      "us": "PFE",
+      "type": "cdr",
+      "name": "Pfizer",
+      "aliases": [
+        "PFE.NE"
+      ]
+    },
+    {
+      "cad": "PG.TO",
+      "us": "PG",
+      "type": "cdr",
+      "name": "Procter & Gamble",
+      "aliases": [
+        "PG.NE"
+      ]
+    },
+    {
+      "cad": "PLTR.TO",
+      "us": "PLTR",
+      "type": "cdr",
+      "name": "Palantir",
+      "aliases": [
+        "PLTR.NE"
+      ]
+    },
+    {
+      "cad": "PYPL.TO",
+      "us": "PYPL",
+      "type": "cdr",
+      "name": "PayPal",
+      "aliases": [
+        "PYPL.NE"
+      ]
+    },
+    {
+      "cad": "QCOM.TO",
+      "us": "QCOM",
+      "type": "cdr",
+      "name": "Qualcomm",
+      "aliases": [
+        "QCOM.NE"
+      ]
+    },
+    {
+      "cad": "SBUX.TO",
+      "us": "SBUX",
+      "type": "cdr",
+      "name": "Starbucks",
+      "aliases": [
+        "SBUX.NE"
+      ]
+    },
+    {
+      "cad": "SPCX.TO",
+      "us": "SPCX",
+      "type": "cdr",
+      "name": "SpaceX (private CDR)",
+      "aliases": [
+        "SPCX.NE"
+      ]
+    },
+    {
+      "cad": "TSLA.TO",
+      "us": "TSLA",
+      "type": "cdr",
+      "name": "Tesla",
+      "aliases": [
+        "TSLA.NE"
+      ]
+    },
+    {
+      "cad": "TXN.TO",
+      "us": "TXN",
+      "type": "cdr",
+      "name": "Texas Instruments",
+      "aliases": [
+        "TXN.NE"
+      ]
+    },
+    {
+      "cad": "UBER.TO",
+      "us": "UBER",
+      "type": "cdr",
+      "name": "Uber",
+      "aliases": [
+        "UBER.NE"
+      ]
+    },
+    {
+      "cad": "UNH.TO",
+      "us": "UNH",
+      "type": "cdr",
+      "name": "UnitedHealth",
+      "aliases": [
+        "UNH.NE"
+      ]
+    },
+    {
+      "cad": "UPS.TO",
+      "us": "UPS",
+      "type": "cdr",
+      "name": "UPS",
+      "aliases": [
+        "UPS.NE"
+      ]
+    },
+    {
+      "cad": "V.NE",
+      "us": "V",
+      "type": "cdr",
+      "name": "Visa"
+    },
+    {
+      "cad": "VZ.TO",
+      "us": "VZ",
+      "type": "cdr",
+      "name": "Verizon",
+      "aliases": [
+        "VZ.NE"
+      ]
+    },
+    {
+      "cad": "WMT.TO",
+      "us": "WMT",
+      "type": "cdr",
+      "name": "Walmart",
+      "aliases": [
+        "WMT.NE"
+      ]
+    },
+    {
+      "cad": "XOM.TO",
+      "us": "XOM",
+      "type": "cdr",
+      "name": "Exxon Mobil",
+      "aliases": [
+        "XOM.NE"
+      ]
+    },
+    {
+      "cad": "SHOP.TO",
+      "us": "SHOP",
+      "type": "cross",
+      "name": "Shopify"
+    },
+    {
+      "cad": "TD.TO",
+      "us": "TD",
+      "type": "cross",
+      "name": "TD Bank"
+    },
+    {
+      "cad": "RY.TO",
+      "us": "RY",
+      "type": "cross",
+      "name": "Royal Bank of Canada"
+    },
+    {
+      "cad": "BNS.TO",
+      "us": "BNS",
+      "type": "cross",
+      "name": "Scotiabank"
+    },
+    {
+      "cad": "BMO.TO",
+      "us": "BMO",
+      "type": "cross",
+      "name": "Bank of Montreal"
+    },
+    {
+      "cad": "CM.TO",
+      "us": "CM",
+      "type": "cross",
+      "name": "CIBC"
+    },
+    {
+      "cad": "ENB.TO",
+      "us": "ENB",
+      "type": "cross",
+      "name": "Enbridge"
+    },
+    {
+      "cad": "TRP.TO",
+      "us": "TRP",
+      "type": "cross",
+      "name": "TC Energy"
+    },
+    {
+      "cad": "SU.TO",
+      "us": "SU",
+      "type": "cross",
+      "name": "Suncor"
+    },
+    {
+      "cad": "CNQ.TO",
+      "us": "CNQ",
+      "type": "cross",
+      "name": "Canadian Natural Resources"
+    },
+    {
+      "cad": "CVE.TO",
+      "us": "CVE",
+      "type": "cross",
+      "name": "Cenovus"
+    },
+    {
+      "cad": "MFC.TO",
+      "us": "MFC",
+      "type": "cross",
+      "name": "Manulife"
+    },
+    {
+      "cad": "SLF.TO",
+      "us": "SLF",
+      "type": "cross",
+      "name": "Sun Life"
+    },
+    {
+      "cad": "CP.TO",
+      "us": "CP",
+      "type": "cross",
+      "name": "CPKC"
+    },
+    {
+      "cad": "CNR.TO",
+      "us": "CNI",
+      "type": "cross",
+      "name": "Canadian National Railway"
+    },
+    {
+      "cad": "TECK-B.TO",
+      "us": "TECK",
+      "type": "cross",
+      "name": "Teck Resources",
+      "aliases": [
+        "TECK.B"
+      ]
+    },
+    {
+      "cad": "AEM.TO",
+      "us": "AEM",
+      "type": "cross",
+      "name": "Agnico Eagle"
+    },
+    {
+      "cad": "WCN.TO",
+      "us": "WCN",
+      "type": "cross",
+      "name": "Waste Connections"
+    },
+    {
+      "cad": "QSR.TO",
+      "us": "QSR",
+      "type": "cross",
+      "name": "Restaurant Brands"
+    },
+    {
+      "cad": "BN.TO",
+      "us": "BN",
+      "type": "cross",
+      "name": "Brookfield Corp"
+    },
+    {
+      "cad": "BAM.TO",
+      "us": "BAM",
+      "type": "cross",
+      "name": "Brookfield Asset Management"
+    }
+  ]
+}

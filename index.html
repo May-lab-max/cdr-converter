@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CDR ⇄ USD Converter</title>
+<style>
+  :root {
+    --bg: #f7f6f3; --card: #ffffff; --ink: #1a1a1a; --muted: #6b6b6b;
+    --line: #e4e2dd; --accent: #0d6e5f; --amber: #9a6700; --chip: #efede8;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #131313; --card: #1c1c1c; --ink: #ececec; --muted: #9a9a9a;
+      --line: #2c2c2c; --accent: #4cc2ae; --amber: #d4a72c; --chip: #262626;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    background: var(--bg); color: var(--ink); min-height: 100vh;
+    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    display: flex; flex-direction: column; align-items: center; padding: 48px 16px;
+  }
+  header { text-align: center; margin-bottom: 28px; }
+  header h1 { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+  header p { color: var(--muted); font-size: 13px; margin-top: 4px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    width: 100%; max-width: 520px; padding: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .search-wrap { position: relative; }
+  #symbol {
+    width: 100%; padding: 12px 14px; font-size: 16px; border-radius: 10px;
+    border: 1px solid var(--line); background: var(--bg); color: var(--ink); outline: none;
+  }
+  #symbol:focus { border-color: var(--accent); }
+  #suggest {
+    position: absolute; top: calc(100% + 4px); left: 0; right: 0; z-index: 10;
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    max-height: 260px; overflow-y: auto; display: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  }
+  #suggest div { padding: 9px 14px; cursor: pointer; display: flex; justify-content: space-between; gap: 12px; }
+  #suggest div:hover, #suggest div.active { background: var(--chip); }
+  #suggest .nm { color: var(--muted); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #suggest .sym { font-family: var(--mono); font-size: 13px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 4px; }
+  .chips button {
+    border: 1px solid var(--line); background: var(--chip); color: var(--ink);
+    border-radius: 999px; padding: 3px 11px; font-size: 12px; cursor: pointer;
+    font-family: var(--mono);
+  }
+  .chips button:hover { border-color: var(--accent); color: var(--accent); }
+  .rows { margin-top: 18px; display: none; }
+  .rows.on { display: block; }
+  .pairhead { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; }
+  .pairhead .title { font-weight: 600; }
+  .pairhead .title span { color: var(--muted); font-weight: 400; font-family: var(--mono); font-size: 13px; margin-left: 6px; }
+  .badge {
+    font-size: 11px; padding: 2px 8px; border-radius: 999px;
+    border: 1px solid var(--line); color: var(--muted); white-space: nowrap;
+  }
+  .badge.hedged { color: var(--accent); border-color: var(--accent); }
+  .amount { display: flex; align-items: center; gap: 10px; border: 1px solid var(--line);
+    border-radius: 10px; padding: 10px 14px; margin-bottom: 10px; background: var(--bg); }
+  .amount:focus-within { border-color: var(--accent); }
+  .amount label { font-size: 12px; color: var(--muted); width: 118px; flex-shrink: 0; }
+  .amount label b { display: block; color: var(--ink); font-size: 13px; font-weight: 600; }
+  .amount input {
+    flex: 1; min-width: 0; border: none; background: none; color: var(--ink); outline: none;
+    font-family: var(--mono); font-size: 22px; text-align: right;
+  }
+  .kline { text-align: center; color: var(--muted); font-size: 13px; margin: 10px 0 2px; }
+  .kline b { color: var(--ink); font-family: var(--mono); font-weight: 600; }
+  .meta { text-align: center; color: var(--muted); font-size: 12px; margin-top: 10px; }
+  .meta .warn { color: var(--amber); }
+  footer { color: var(--muted); font-size: 12px; margin-top: 26px; max-width: 520px; text-align: center; }
+</style>
+</head>
+<body>
+<header>
+  <h1>CDR ⇄ USD converter</h1>
+  <p>What a Canadian-listed price means in US$ per share — and back</p>
+</header>
+
+<div class="card">
+  <div class="search-wrap">
+    <input id="symbol" placeholder="Ticker — NVDA, NVDA.TO, SHOP, GOOGL…"
+           autocomplete="off" spellcheck="false" autofocus>
+    <div id="suggest"></div>
+  </div>
+  <div class="chips" id="chips"></div>
+
+  <div class="rows" id="rows">
+    <div class="pairhead">
+      <div class="title" id="pairname"></div>
+      <div class="badge" id="pairbadge"></div>
+    </div>
+    <div class="amount">
+      <label>US market price<b id="uslabel"></b></label>
+      <span style="color:var(--muted)">US$</span>
+      <input id="usd" inputmode="decimal">
+    </div>
+    <div class="amount">
+      <label>Canadian price<b id="cadlabel"></b></label>
+      <span style="color:var(--muted)">CA$</span>
+      <input id="cad" inputmode="decimal">
+    </div>
+    <div class="kline" id="kline"></div>
+    <div class="meta" id="meta"></div>
+  </div>
+</div>
+
+<footer id="foot"></footer>
+
+<script src="rates.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  const POPULAR = ['NVDA.TO','AAPL.TO','MSFT.TO','AMZN.TO','GOOG.TO','META.TO','TSLA.TO','AVGO.TO','BRK.TO','SHOP.TO'];
+  const $ = id => document.getElementById(id);
+
+  function boot(rates) {
+    const pairs = Object.values(rates.pairs);
+    const usdcad = rates.usdcad_spot;
+
+    // ---- resolver: any spelling of either leg -> pair ----
+    const index = new Map();
+    for (const p of pairs) {
+      const keys = [p.cad_symbol, p.us_symbol, ...p.aliases,
+                    p.cad_symbol.replace(/\.(NE|TO)$/, '')];
+      // bare US symbol should prefer the CDR over a cross-listing conflict; none today
+      for (const k of keys) if (!index.has(k.toUpperCase())) index.set(k.toUpperCase(), p);
+    }
+    const resolve = q => index.get(q.trim().toUpperCase().replace(/\s+/g, '')) || null;
+
+    let current = null;
+
+    const fmt = (v, dp) => v.toLocaleString('en-US', { minimumFractionDigits: dp, maximumFractionDigits: dp });
+    const parse = el => { const v = parseFloat(el.value.replace(/[,\s$]/g, '')); return isFinite(v) ? v : null; };
+
+    function show(p, { keepAmounts = false } = {}) {
+      current = p;
+      $('rows').classList.add('on');
+      $('pairname').innerHTML = p.name + ' <span>' + p.cad_symbol + ' ⇄ ' + p.us_symbol + '</span>';
+      const b = $('pairbadge');
+      if (p.type === 'cdr') { b.textContent = 'CAD-hedged CDR'; b.className = 'badge hedged'; }
+      else { b.textContent = 'Cross-listed · unhedged'; b.className = 'badge'; }
+      $('uslabel').textContent = p.us_symbol;
+      $('cadlabel').textContent = p.cad_symbol;
+      if (!keepAmounts) {
+        $('usd').value = fmt(p.us_price, 2);
+        $('cad').value = fmt(p.cad_price, 2);
+      }
+      let k = '1 ' + p.cad_symbol + ' = <b>' + p.k.toFixed(5) + '</b> × ' + p.us_symbol + ' (CA$/US$)';
+      if (p.type === 'cdr' && usdcad) {
+        k += ' · ≈ <b>' + (p.k / usdcad).toFixed(4) + '</b> shares per CDR';
+      }
+      $('kline').innerHTML = k;
+      const mismatch = p.price_date.includes('/');
+      $('meta').innerHTML = 'Factor from simultaneous closes on <b>' + p.price_date + '</b>'
+        + (mismatch ? ' <span class="warn">— legs closed on different days; treat as approximate</span>' : '');
+      const u = new URL(location); u.searchParams.set('s', p.cad_symbol); history.replaceState(null, '', u);
+    }
+
+    // ---- bidirectional conversion ----
+    $('usd').addEventListener('input', () => {
+      if (!current) return;
+      const v = parse($('usd'));
+      $('cad').value = v === null ? '' : fmt(v * current.k, 2);
+    });
+    $('cad').addEventListener('input', () => {
+      if (!current) return;
+      const v = parse($('cad'));
+      $('usd').value = v === null ? '' : fmt(v / current.k, 2);
+    });
+    // re-pretty the edited box on blur
+    for (const id of ['usd', 'cad']) $(id).addEventListener('blur', () => {
+      const v = parse($(id)); if (v !== null) $(id).value = fmt(v, 2);
+    });
+
+    // ---- search + suggestions ----
+    const sug = $('suggest');
+    let activeIdx = -1, shown = [];
+    function renderSuggest(q) {
+      const needle = q.trim().toUpperCase();
+      shown = !needle ? [] : pairs.filter(p =>
+        p.cad_symbol.startsWith(needle) || p.us_symbol.startsWith(needle) ||
+        p.aliases.some(a => a.toUpperCase().startsWith(needle)) ||
+        p.name.toUpperCase().includes(needle)).slice(0, 8);
+      activeIdx = -1;
+      sug.innerHTML = shown.map(p =>
+        '<div data-s="' + p.cad_symbol + '"><span class="sym">' + p.cad_symbol + ' ⇄ ' + p.us_symbol
+        + '</span><span class="nm">' + p.name + '</span></div>').join('');
+      sug.style.display = shown.length ? 'block' : 'none';
+    }
+    function pick(p) {
+      $('symbol').value = p.cad_symbol;
+      sug.style.display = 'none';
+      show(p);
+      $('usd').focus(); $('usd').select();
+    }
+    $('symbol').addEventListener('input', e => {
+      renderSuggest(e.target.value);
+      const hit = resolve(e.target.value);
+      if (hit) show(hit);
+    });
+    $('symbol').addEventListener('keydown', e => {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (!shown.length) return;
+        activeIdx = (activeIdx + (e.key === 'ArrowDown' ? 1 : -1) + shown.length) % shown.length;
+        [...sug.children].forEach((el, i) => el.classList.toggle('active', i === activeIdx));
+      } else if (e.key === 'Enter') {
+        const p = activeIdx >= 0 ? shown[activeIdx] : (resolve(e.target.value) || shown[0]);
+        if (p) pick(p);
+      } else if (e.key === 'Escape') {
+        sug.style.display = 'none';
+      }
+    });
+    sug.addEventListener('mousedown', e => {
+      const row = e.target.closest('[data-s]');
+      if (row) { e.preventDefault(); pick(index.get(row.dataset.s.toUpperCase())); }
+    });
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.search-wrap')) sug.style.display = 'none';
+    });
+
+    // ---- quick chips ----
+    $('chips').innerHTML = POPULAR.filter(s => index.has(s))
+      .map(s => '<button data-s="' + s + '">' + s.replace(/\.(NE|TO)$/, '') + '</button>').join('');
+    $('chips').addEventListener('click', e => {
+      const b = e.target.closest('[data-s]');
+      if (b) pick(index.get(b.dataset.s.toUpperCase()));
+    });
+
+    // ---- footer + initial state ----
+    $('foot').innerHTML = pairs.length + ' pairs · rates generated ' + rates.generated_at.replace('T', ' ')
+      + (usdcad ? ' · spot USD/CAD ' + usdcad.toFixed(4) : '')
+      + '<br>CDR factors embed CIBC’s notional CAD hedge — do not convert CDR prices with spot FX.';
+
+    const q = new URL(location).searchParams.get('s');
+    const init = (q && resolve(q)) || index.get('NVDA.NE') || pairs[0];
+    if (init) { $('symbol').value = init.cad_symbol; show(init); }
+  }
+
+  if (window.__RATES__) boot(window.__RATES__);
+  else fetch('rates.json').then(r => r.json()).then(boot)
+    .catch(() => { $('foot').textContent = 'rates.js / rates.json not found — run: python3 update_rates.py'; });
+})();
+</script>
+</body>
+</html>

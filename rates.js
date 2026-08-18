@@ -1,0 +1,938 @@
+window.__RATES__ = {
+  "generated_at": "2026-08-18T03:57 UTC",
+  "usdcad_spot": 1.38723,
+  "pairs": {
+    "AAPL.TO": {
+      "cad_symbol": "AAPL.TO",
+      "us_symbol": "AAPL",
+      "type": "cdr",
+      "name": "Apple",
+      "aliases": [
+        "AAPL.NE"
+      ],
+      "cad_price": 43.07,
+      "us_price": 305.59,
+      "k": 0.14094,
+      "price_date": "2026-08-17"
+    },
+    "ABBV.TO": {
+      "cad_symbol": "ABBV.TO",
+      "us_symbol": "ABBV",
+      "type": "cdr",
+      "name": "AbbVie",
+      "aliases": [
+        "ABBV.NE"
+      ],
+      "cad_price": 34.82,
+      "us_price": 250.33,
+      "k": 0.139096,
+      "price_date": "2026-08-17"
+    },
+    "ABNB.TO": {
+      "cad_symbol": "ABNB.TO",
+      "us_symbol": "ABNB",
+      "type": "cdr",
+      "name": "Airbnb",
+      "aliases": [
+        "ABNB.NE"
+      ],
+      "cad_price": 29.91,
+      "us_price": 179.29,
+      "k": 0.166825,
+      "price_date": "2026-08-17"
+    },
+    "ADBE.TO": {
+      "cad_symbol": "ADBE.TO",
+      "us_symbol": "ADBE",
+      "type": "cdr",
+      "name": "Adobe",
+      "aliases": [
+        "ADBE.NE"
+      ],
+      "cad_price": 9.71,
+      "us_price": 254.04,
+      "k": 0.038222,
+      "price_date": "2026-08-17"
+    },
+    "AMD.TO": {
+      "cad_symbol": "AMD.TO",
+      "us_symbol": "AMD",
+      "type": "cdr",
+      "name": "Advanced Micro Devices",
+      "aliases": [
+        "AMD.NE"
+      ],
+      "cad_price": 91.59,
+      "us_price": 506.0,
+      "k": 0.181008,
+      "price_date": "2026-08-17"
+    },
+    "AMAT.TO": {
+      "cad_symbol": "AMAT.TO",
+      "us_symbol": "AMAT",
+      "type": "cdr",
+      "name": "Applied Materials",
+      "aliases": [
+        "AMAT.NE"
+      ],
+      "cad_price": 59.34,
+      "us_price": 535.31,
+      "k": 0.110852,
+      "price_date": "2026-08-17"
+    },
+    "AMZN.TO": {
+      "cad_symbol": "AMZN.TO",
+      "us_symbol": "AMZN",
+      "type": "cdr",
+      "name": "Amazon",
+      "aliases": [
+        "AMZN.NE"
+      ],
+      "cad_price": 29.88,
+      "us_price": 261.31,
+      "k": 0.114347,
+      "price_date": "2026-08-17"
+    },
+    "AVGO.TO": {
+      "cad_symbol": "AVGO.TO",
+      "us_symbol": "AVGO",
+      "type": "cdr",
+      "name": "Broadcom",
+      "aliases": [
+        "AVGO.NE"
+      ],
+      "cad_price": 14.99,
+      "us_price": 392.43,
+      "k": 0.038198,
+      "price_date": "2026-08-17"
+    },
+    "AXP.TO": {
+      "cad_symbol": "AXP.TO",
+      "us_symbol": "AXP",
+      "type": "cdr",
+      "name": "American Express",
+      "aliases": [
+        "AXP.NE"
+      ],
+      "cad_price": 28.53,
+      "us_price": 336.21,
+      "k": 0.084858,
+      "price_date": "2026-08-17"
+    },
+    "BA.TO": {
+      "cad_symbol": "BA.TO",
+      "us_symbol": "BA",
+      "type": "cdr",
+      "name": "Boeing",
+      "aliases": [
+        "BA.NE"
+      ],
+      "cad_price": 37.53,
+      "us_price": 225.95,
+      "k": 0.166099,
+      "price_date": "2026-08-17"
+    },
+    "BAC.NE": {
+      "cad_symbol": "BAC.NE",
+      "us_symbol": "BAC",
+      "type": "cdr",
+      "name": "Bank of America",
+      "aliases": [],
+      "cad_price": 0.045,
+      "us_price": 63.89,
+      "k": 0.000704,
+      "price_date": "2026-08-17"
+    },
+    "BRK.TO": {
+      "cad_symbol": "BRK.TO",
+      "us_symbol": "BRK-B",
+      "type": "cdr",
+      "name": "Berkshire Hathaway",
+      "aliases": [
+        "BRKB",
+        "BRK.B",
+        "BRK.NE"
+      ],
+      "cad_price": 36.13,
+      "us_price": 498.23,
+      "k": 0.072517,
+      "price_date": "2026-08-17"
+    },
+    "COIN.TO": {
+      "cad_symbol": "COIN.TO",
+      "us_symbol": "COIN",
+      "type": "cdr",
+      "name": "Coinbase",
+      "aliases": [
+        "COIN.NE"
+      ],
+      "cad_price": 9.12,
+      "us_price": 150.55,
+      "k": 0.060578,
+      "price_date": "2026-08-17"
+    },
+    "COST.TO": {
+      "cad_symbol": "COST.TO",
+      "us_symbol": "COST",
+      "type": "cdr",
+      "name": "Costco",
+      "aliases": [
+        "COST.NE"
+      ],
+      "cad_price": 42.47,
+      "us_price": 953.5,
+      "k": 0.044541,
+      "price_date": "2026-08-17"
+    },
+    "CRM.TO": {
+      "cad_symbol": "CRM.TO",
+      "us_symbol": "CRM",
+      "type": "cdr",
+      "name": "Salesforce",
+      "aliases": [
+        "CRM.NE"
+      ],
+      "cad_price": 14.58,
+      "us_price": 190.97,
+      "k": 0.076347,
+      "price_date": "2026-08-17"
+    },
+    "CSCO.TO": {
+      "cad_symbol": "CSCO.TO",
+      "us_symbol": "CSCO",
+      "type": "cdr",
+      "name": "Cisco",
+      "aliases": [
+        "CSCO.NE"
+      ],
+      "cad_price": 54.15,
+      "us_price": 112.9,
+      "k": 0.479628,
+      "price_date": "2026-08-17"
+    },
+    "CVS.TO": {
+      "cad_symbol": "CVS.TO",
+      "us_symbol": "CVS",
+      "type": "cdr",
+      "name": "CVS Health",
+      "aliases": [
+        "CVS.NE"
+      ],
+      "cad_price": 22.48,
+      "us_price": 94.01,
+      "k": 0.239123,
+      "price_date": "2026-08-17"
+    },
+    "DIS.TO": {
+      "cad_symbol": "DIS.TO",
+      "us_symbol": "DIS",
+      "type": "cdr",
+      "name": "Disney",
+      "aliases": [
+        "DIS.NE"
+      ],
+      "cad_price": 11.57,
+      "us_price": 103.5,
+      "k": 0.111787,
+      "price_date": "2026-08-17"
+    },
+    "GE.TO": {
+      "cad_symbol": "GE.TO",
+      "us_symbol": "GE",
+      "type": "cdr",
+      "name": "GE Aerospace",
+      "aliases": [
+        "GE.NE"
+      ],
+      "cad_price": 47.92,
+      "us_price": 369.43,
+      "k": 0.129713,
+      "price_date": "2026-08-17"
+    },
+    "GOOG.TO": {
+      "cad_symbol": "GOOG.TO",
+      "us_symbol": "GOOG",
+      "type": "cdr",
+      "name": "Alphabet",
+      "aliases": [
+        "GOOGL",
+        "GOOG.NE"
+      ],
+      "cad_price": 54.45,
+      "us_price": 341.45,
+      "k": 0.159467,
+      "price_date": "2026-08-17"
+    },
+    "GS.TO": {
+      "cad_symbol": "GS.TO",
+      "us_symbol": "GS",
+      "type": "cdr",
+      "name": "Goldman Sachs",
+      "aliases": [
+        "GS.NE"
+      ],
+      "cad_price": 50.01,
+      "us_price": 1051.3101,
+      "k": 0.047569,
+      "price_date": "2026-08-17"
+    },
+    "HD.TO": {
+      "cad_symbol": "HD.TO",
+      "us_symbol": "HD",
+      "type": "cdr",
+      "name": "Home Depot",
+      "aliases": [
+        "HD.NE"
+      ],
+      "cad_price": 20.97,
+      "us_price": 337.88,
+      "k": 0.062063,
+      "price_date": "2026-08-17"
+    },
+    "IBM.TO": {
+      "cad_symbol": "IBM.TO",
+      "us_symbol": "IBM",
+      "type": "cdr",
+      "name": "IBM",
+      "aliases": [
+        "IBM.NE"
+      ],
+      "cad_price": 33.76,
+      "us_price": 228.85,
+      "k": 0.14752,
+      "price_date": "2026-08-17"
+    },
+    "INTC.TO": {
+      "cad_symbol": "INTC.TO",
+      "us_symbol": "INTC",
+      "type": "cdr",
+      "name": "Intel",
+      "aliases": [
+        "INTC.NE"
+      ],
+      "cad_price": 58.31,
+      "us_price": 103.49,
+      "k": 0.563436,
+      "price_date": "2026-08-17"
+    },
+    "JNJ.TO": {
+      "cad_symbol": "JNJ.TO",
+      "us_symbol": "JNJ",
+      "type": "cdr",
+      "name": "Johnson & Johnson",
+      "aliases": [
+        "JNJ.NE"
+      ],
+      "cad_price": 33.57,
+      "us_price": 262.37,
+      "k": 0.127949,
+      "price_date": "2026-08-17"
+    },
+    "JPM.TO": {
+      "cad_symbol": "JPM.TO",
+      "us_symbol": "JPM",
+      "type": "cdr",
+      "name": "JPMorgan Chase",
+      "aliases": [
+        "JPM.NE"
+      ],
+      "cad_price": 46.02,
+      "us_price": 360.96,
+      "k": 0.127493,
+      "price_date": "2026-08-17"
+    },
+    "LLY.TO": {
+      "cad_symbol": "LLY.TO",
+      "us_symbol": "LLY",
+      "type": "cdr",
+      "name": "Eli Lilly",
+      "aliases": [
+        "LLY.NE"
+      ],
+      "cad_price": 42.45,
+      "us_price": 1183.16,
+      "k": 0.035878,
+      "price_date": "2026-08-17"
+    },
+    "MA.TO": {
+      "cad_symbol": "MA.TO",
+      "us_symbol": "MA",
+      "type": "cdr",
+      "name": "Mastercard",
+      "aliases": [
+        "MA.NE"
+      ],
+      "cad_price": 33.98,
+      "us_price": 562.26,
+      "k": 0.060435,
+      "price_date": "2026-08-17"
+    },
+    "MCD.TO": {
+      "cad_symbol": "MCD.TO",
+      "us_symbol": "MCD",
+      "type": "cdr",
+      "name": "McDonald's",
+      "aliases": [
+        "MCD.NE"
+      ],
+      "cad_price": 22.37,
+      "us_price": 265.53,
+      "k": 0.084247,
+      "price_date": "2026-08-17"
+    },
+    "META.TO": {
+      "cad_symbol": "META.TO",
+      "us_symbol": "META",
+      "type": "cdr",
+      "name": "Meta Platforms",
+      "aliases": [
+        "META.NE"
+      ],
+      "cad_price": 30.26,
+      "us_price": 568.97,
+      "k": 0.053184,
+      "price_date": "2026-08-17"
+    },
+    "MRK.TO": {
+      "cad_symbol": "MRK.TO",
+      "us_symbol": "MRK",
+      "type": "cdr",
+      "name": "Merck",
+      "aliases": [
+        "MRK.NE"
+      ],
+      "cad_price": 30.33,
+      "us_price": 135.97,
+      "k": 0.223064,
+      "price_date": "2026-08-17"
+    },
+    "MSFT.TO": {
+      "cad_symbol": "MSFT.TO",
+      "us_symbol": "MSFT",
+      "type": "cdr",
+      "name": "Microsoft",
+      "aliases": [
+        "MSFT.NE"
+      ],
+      "cad_price": 33.62,
+      "us_price": 480.35,
+      "k": 0.069991,
+      "price_date": "2026-08-17"
+    },
+    "MU.TO": {
+      "cad_symbol": "MU.TO",
+      "us_symbol": "MU",
+      "type": "cdr",
+      "name": "Micron",
+      "aliases": [
+        "MU.NE"
+      ],
+      "cad_price": 44.42,
+      "us_price": 1011.75,
+      "k": 0.043904,
+      "price_date": "2026-08-17"
+    },
+    "NFLX.TO": {
+      "cad_symbol": "NFLX.TO",
+      "us_symbol": "NFLX",
+      "type": "cdr",
+      "name": "Netflix",
+      "aliases": [
+        "NFLX.NE"
+      ],
+      "cad_price": 28.56,
+      "us_price": 76.02,
+      "k": 0.375691,
+      "price_date": "2026-08-17"
+    },
+    "NKE.TO": {
+      "cad_symbol": "NKE.TO",
+      "us_symbol": "NKE",
+      "type": "cdr",
+      "name": "Nike",
+      "aliases": [
+        "NKE.NE"
+      ],
+      "cad_price": 7.02,
+      "us_price": 39.09,
+      "k": 0.179586,
+      "price_date": "2026-08-17"
+    },
+    "NVDA.TO": {
+      "cad_symbol": "NVDA.TO",
+      "us_symbol": "NVDA",
+      "type": "cdr",
+      "name": "NVIDIA",
+      "aliases": [
+        "NVDA.NE"
+      ],
+      "cad_price": 50.28,
+      "us_price": 225.01,
+      "k": 0.223457,
+      "price_date": "2026-08-17"
+    },
+    "ORCL.NE": {
+      "cad_symbol": "ORCL.NE",
+      "us_symbol": "ORCL",
+      "type": "cdr",
+      "name": "Oracle",
+      "aliases": [],
+      "cad_price": 0.03,
+      "us_price": 150.52,
+      "k": 0.000199,
+      "price_date": "2026-08-14"
+    },
+    "PEP.TO": {
+      "cad_symbol": "PEP.TO",
+      "us_symbol": "PEP",
+      "type": "cdr",
+      "name": "PepsiCo",
+      "aliases": [
+        "PEP.NE"
+      ],
+      "cad_price": 20.51,
+      "us_price": 138.24,
+      "k": 0.148365,
+      "price_date": "2026-08-17"
+    },
+    "PFE.TO": {
+      "cad_symbol": "PFE.TO",
+      "us_symbol": "PFE",
+      "type": "cdr",
+      "name": "Pfizer",
+      "aliases": [
+        "PFE.NE"
+      ],
+      "cad_price": 11.97,
+      "us_price": 26.87,
+      "k": 0.445478,
+      "price_date": "2026-08-17"
+    },
+    "PG.TO": {
+      "cad_symbol": "PG.TO",
+      "us_symbol": "PG",
+      "type": "cdr",
+      "name": "Procter & Gamble",
+      "aliases": [
+        "PG.NE"
+      ],
+      "cad_price": 23.6,
+      "us_price": 143.12,
+      "k": 0.164897,
+      "price_date": "2026-08-17"
+    },
+    "PLTR.TO": {
+      "cad_symbol": "PLTR.TO",
+      "us_symbol": "PLTR",
+      "type": "cdr",
+      "name": "Palantir",
+      "aliases": [
+        "PLTR.NE"
+      ],
+      "cad_price": 13.03,
+      "us_price": 172.55,
+      "k": 0.075514,
+      "price_date": "2026-08-17"
+    },
+    "PYPL.TO": {
+      "cad_symbol": "PYPL.TO",
+      "us_symbol": "PYPL",
+      "type": "cdr",
+      "name": "PayPal",
+      "aliases": [
+        "PYPL.NE"
+      ],
+      "cad_price": 4.305,
+      "us_price": 60.47,
+      "k": 0.071192,
+      "price_date": "2026-08-17"
+    },
+    "QCOM.TO": {
+      "cad_symbol": "QCOM.TO",
+      "us_symbol": "QCOM",
+      "type": "cdr",
+      "name": "Qualcomm",
+      "aliases": [
+        "QCOM.NE"
+      ],
+      "cad_price": 21.05,
+      "us_price": 162.18,
+      "k": 0.129794,
+      "price_date": "2026-08-17"
+    },
+    "SBUX.TO": {
+      "cad_symbol": "SBUX.TO",
+      "us_symbol": "SBUX",
+      "type": "cdr",
+      "name": "Starbucks",
+      "aliases": [
+        "SBUX.NE"
+      ],
+      "cad_price": 29.6,
+      "us_price": 107.92,
+      "k": 0.274277,
+      "price_date": "2026-08-17"
+    },
+    "SPCX.TO": {
+      "cad_symbol": "SPCX.TO",
+      "us_symbol": "SPCX",
+      "type": "cdr",
+      "name": "SpaceX (private CDR)",
+      "aliases": [
+        "SPCX.NE"
+      ],
+      "cad_price": 24.38,
+      "us_price": 146.23,
+      "k": 0.166724,
+      "price_date": "2026-08-17"
+    },
+    "TSLA.TO": {
+      "cad_symbol": "TSLA.TO",
+      "us_symbol": "TSLA",
+      "type": "cdr",
+      "name": "Tesla",
+      "aliases": [
+        "TSLA.NE"
+      ],
+      "cad_price": 29.44,
+      "us_price": 339.3,
+      "k": 0.086767,
+      "price_date": "2026-08-17"
+    },
+    "TXN.TO": {
+      "cad_symbol": "TXN.TO",
+      "us_symbol": "TXN",
+      "type": "cdr",
+      "name": "Texas Instruments",
+      "aliases": [
+        "TXN.NE"
+      ],
+      "cad_price": 29.48,
+      "us_price": 282.91,
+      "k": 0.104203,
+      "price_date": "2026-08-17"
+    },
+    "UBER.TO": {
+      "cad_symbol": "UBER.TO",
+      "us_symbol": "UBER",
+      "type": "cdr",
+      "name": "Uber",
+      "aliases": [
+        "UBER.NE"
+      ],
+      "cad_price": 10.99,
+      "us_price": 74.99,
+      "k": 0.146553,
+      "price_date": "2026-08-17"
+    },
+    "UNH.TO": {
+      "cad_symbol": "UNH.TO",
+      "us_symbol": "UNH",
+      "type": "cdr",
+      "name": "UnitedHealth",
+      "aliases": [
+        "UNH.NE"
+      ],
+      "cad_price": 18.1,
+      "us_price": 395.62,
+      "k": 0.045751,
+      "price_date": "2026-08-17"
+    },
+    "UPS.TO": {
+      "cad_symbol": "UPS.TO",
+      "us_symbol": "UPS",
+      "type": "cdr",
+      "name": "UPS",
+      "aliases": [
+        "UPS.NE"
+      ],
+      "cad_price": 12.82,
+      "us_price": 102.02,
+      "k": 0.125662,
+      "price_date": "2026-08-17"
+    },
+    "V.NE": {
+      "cad_symbol": "V.NE",
+      "us_symbol": "V",
+      "type": "cdr",
+      "name": "Visa",
+      "aliases": [],
+      "cad_price": 0.46,
+      "us_price": 362.5,
+      "k": 0.001269,
+      "price_date": "2026-08-07"
+    },
+    "VZ.TO": {
+      "cad_symbol": "VZ.TO",
+      "us_symbol": "VZ",
+      "type": "cdr",
+      "name": "Verizon",
+      "aliases": [
+        "VZ.NE"
+      ],
+      "cad_price": 20.19,
+      "us_price": 48.06,
+      "k": 0.4201,
+      "price_date": "2026-08-17"
+    },
+    "WMT.TO": {
+      "cad_symbol": "WMT.TO",
+      "us_symbol": "WMT",
+      "type": "cdr",
+      "name": "Walmart",
+      "aliases": [
+        "WMT.NE"
+      ],
+      "cad_price": 47.72,
+      "us_price": 114.33,
+      "k": 0.417388,
+      "price_date": "2026-08-17"
+    },
+    "XOM.TO": {
+      "cad_symbol": "XOM.TO",
+      "us_symbol": "XOM",
+      "type": "cdr",
+      "name": "Exxon Mobil",
+      "aliases": [
+        "XOM.NE"
+      ],
+      "cad_price": 29.11,
+      "us_price": 161.46,
+      "k": 0.180292,
+      "price_date": "2026-08-17"
+    },
+    "SHOP.TO": {
+      "cad_symbol": "SHOP.TO",
+      "us_symbol": "SHOP",
+      "type": "cross",
+      "name": "Shopify",
+      "aliases": [],
+      "cad_price": 206.4,
+      "us_price": 148.65,
+      "k": 1.388496,
+      "price_date": "2026-08-17"
+    },
+    "TD.TO": {
+      "cad_symbol": "TD.TO",
+      "us_symbol": "TD",
+      "type": "cross",
+      "name": "TD Bank",
+      "aliases": [],
+      "cad_price": 172.52,
+      "us_price": 124.34,
+      "k": 1.387486,
+      "price_date": "2026-08-17"
+    },
+    "RY.TO": {
+      "cad_symbol": "RY.TO",
+      "us_symbol": "RY",
+      "type": "cross",
+      "name": "Royal Bank of Canada",
+      "aliases": [],
+      "cad_price": 300.09,
+      "us_price": 216.19,
+      "k": 1.388085,
+      "price_date": "2026-08-17"
+    },
+    "BNS.TO": {
+      "cad_symbol": "BNS.TO",
+      "us_symbol": "BNS",
+      "type": "cross",
+      "name": "Scotiabank",
+      "aliases": [],
+      "cad_price": 126.7,
+      "us_price": 91.35,
+      "k": 1.386973,
+      "price_date": "2026-08-17"
+    },
+    "BMO.TO": {
+      "cad_symbol": "BMO.TO",
+      "us_symbol": "BMO",
+      "type": "cross",
+      "name": "Bank of Montreal",
+      "aliases": [],
+      "cad_price": 257.05,
+      "us_price": 185.28,
+      "k": 1.38736,
+      "price_date": "2026-08-17"
+    },
+    "CM.TO": {
+      "cad_symbol": "CM.TO",
+      "us_symbol": "CM",
+      "type": "cross",
+      "name": "CIBC",
+      "aliases": [],
+      "cad_price": 171.36,
+      "us_price": 123.45,
+      "k": 1.388092,
+      "price_date": "2026-08-17"
+    },
+    "ENB.TO": {
+      "cad_symbol": "ENB.TO",
+      "us_symbol": "ENB",
+      "type": "cross",
+      "name": "Enbridge",
+      "aliases": [],
+      "cad_price": 70.22,
+      "us_price": 50.58,
+      "k": 1.388296,
+      "price_date": "2026-08-17"
+    },
+    "TRP.TO": {
+      "cad_symbol": "TRP.TO",
+      "us_symbol": "TRP",
+      "type": "cross",
+      "name": "TC Energy",
+      "aliases": [],
+      "cad_price": 87.85,
+      "us_price": 63.28,
+      "k": 1.388274,
+      "price_date": "2026-08-17"
+    },
+    "SU.TO": {
+      "cad_symbol": "SU.TO",
+      "us_symbol": "SU",
+      "type": "cross",
+      "name": "Suncor",
+      "aliases": [],
+      "cad_price": 92.59,
+      "us_price": 66.66,
+      "k": 1.388989,
+      "price_date": "2026-08-17"
+    },
+    "CNQ.TO": {
+      "cad_symbol": "CNQ.TO",
+      "us_symbol": "CNQ",
+      "type": "cross",
+      "name": "Canadian Natural Resources",
+      "aliases": [],
+      "cad_price": 68.38,
+      "us_price": 49.27,
+      "k": 1.387863,
+      "price_date": "2026-08-17"
+    },
+    "CVE.TO": {
+      "cad_symbol": "CVE.TO",
+      "us_symbol": "CVE",
+      "type": "cross",
+      "name": "Cenovus",
+      "aliases": [],
+      "cad_price": 44.56,
+      "us_price": 32.13,
+      "k": 1.386866,
+      "price_date": "2026-08-17"
+    },
+    "MFC.TO": {
+      "cad_symbol": "MFC.TO",
+      "us_symbol": "MFC",
+      "type": "cross",
+      "name": "Manulife",
+      "aliases": [],
+      "cad_price": 61.4,
+      "us_price": 44.23,
+      "k": 1.388198,
+      "price_date": "2026-08-17"
+    },
+    "SLF.TO": {
+      "cad_symbol": "SLF.TO",
+      "us_symbol": "SLF",
+      "type": "cross",
+      "name": "Sun Life",
+      "aliases": [],
+      "cad_price": 112.0,
+      "us_price": 80.71,
+      "k": 1.387684,
+      "price_date": "2026-08-17"
+    },
+    "CP.TO": {
+      "cad_symbol": "CP.TO",
+      "us_symbol": "CP",
+      "type": "cross",
+      "name": "CPKC",
+      "aliases": [],
+      "cad_price": 130.19,
+      "us_price": 93.92,
+      "k": 1.38618,
+      "price_date": "2026-08-17"
+    },
+    "CNR.TO": {
+      "cad_symbol": "CNR.TO",
+      "us_symbol": "CNI",
+      "type": "cross",
+      "name": "Canadian National Railway",
+      "aliases": [],
+      "cad_price": 175.51,
+      "us_price": 126.59,
+      "k": 1.386444,
+      "price_date": "2026-08-17"
+    },
+    "TECK-B.TO": {
+      "cad_symbol": "TECK-B.TO",
+      "us_symbol": "TECK",
+      "type": "cross",
+      "name": "Teck Resources",
+      "aliases": [
+        "TECK.B"
+      ],
+      "cad_price": 89.98,
+      "us_price": 64.84,
+      "k": 1.387724,
+      "price_date": "2026-08-17"
+    },
+    "AEM.TO": {
+      "cad_symbol": "AEM.TO",
+      "us_symbol": "AEM",
+      "type": "cross",
+      "name": "Agnico Eagle",
+      "aliases": [],
+      "cad_price": 261.67,
+      "us_price": 188.78,
+      "k": 1.386111,
+      "price_date": "2026-08-17"
+    },
+    "WCN.TO": {
+      "cad_symbol": "WCN.TO",
+      "us_symbol": "WCN",
+      "type": "cross",
+      "name": "Waste Connections",
+      "aliases": [],
+      "cad_price": 228.94,
+      "us_price": 165.01,
+      "k": 1.387431,
+      "price_date": "2026-08-17"
+    },
+    "QSR.TO": {
+      "cad_symbol": "QSR.TO",
+      "us_symbol": "QSR",
+      "type": "cross",
+      "name": "Restaurant Brands",
+      "aliases": [],
+      "cad_price": 107.08,
+      "us_price": 77.16,
+      "k": 1.387766,
+      "price_date": "2026-08-17"
+    },
+    "BN.TO": {
+      "cad_symbol": "BN.TO",
+      "us_symbol": "BN",
+      "type": "cross",
+      "name": "Brookfield Corp",
+      "aliases": [],
+      "cad_price": 59.41,
+      "us_price": 42.75,
+      "k": 1.389708,
+      "price_date": "2026-08-17"
+    },
+    "BAM.TO": {
+      "cad_symbol": "BAM.TO",
+      "us_symbol": "BAM",
+      "type": "cross",
+      "name": "Brookfield Asset Management",
+      "aliases": [],
+      "cad_price": 73.0,
+      "us_price": 52.57,
+      "k": 1.388625,
+      "price_date": "2026-08-17"
+    }
+  }
+};

@@ -1,0 +1,40 @@
+name: Refresh rates
+
+on:
+  schedule:
+    # Cron is UTC. Toronto is UTC-4 (EDT) or UTC-5 (EST); running both slots
+    # guarantees one post-open morning refresh and one post-close refresh
+    # year-round (the extra run is harmless — no data change, no commit).
+    - cron: "45 13 * * 1-5"   # 9:45 EDT / 8:45 EST
+    - cron: "45 14 * * 1-5"   # 10:45 EDT / 9:45 EST
+    - cron: "15 20 * * 1-5"   # 16:15 EDT / 15:15 EST
+    - cron: "15 21 * * 1-5"   # 17:15 EDT / 16:15 EST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch rates
+        run: python update_rates.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name "rates-bot"
+          git config user.email "actions@github.com"
+          git add rates.json rates.js
+          git diff --cached --quiet && echo "No change" && exit 0
+          git commit -m "Refresh rates $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push
