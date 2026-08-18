@@ -243,7 +243,7 @@
       + '<br>CDR factors embed CIBC’s notional CAD hedge — do not convert CDR prices with spot FX.';
 
     const q = new URL(location).searchParams.get('s');
-    const init = (q && resolve(q)) || index.get('NVDA.NE') || pairs[0];
+    const init = (q && resolve(q)) || index.get('NVDA.TO') || pairs[0];
     if (init) { $('symbol').value = init.cad_symbol; show(init); }
   }
 
