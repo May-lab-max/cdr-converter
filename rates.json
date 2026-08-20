@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-20T20:43 UTC",
-  "usdcad_spot": 1.37879,
+  "generated_at": "2026-08-20T21:43 UTC",
+  "usdcad_spot": 1.37846,
   "pairs": {
     "AAPL.TO": {
       "cad_symbol": "AAPL.TO",
@@ -300,19 +300,6 @@
       "cad_price": 12.37,
       "us_price": 218.32,
       "k": 0.05666,
-      "price_date": "2026-08-20"
-    },
-    "IBM.TO": {
-      "cad_symbol": "IBM.TO",
-      "us_symbol": "IBM",
-      "type": "cdr",
-      "name": "IBM",
-      "aliases": [
-        "IBM.NE"
-      ],
-      "cad_price": 34.47,
-      "us_price": 233.69,
-      "k": 0.147503,
       "price_date": "2026-08-20"
     },
     "INTC.TO": {
