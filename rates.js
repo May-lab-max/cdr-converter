@@ -1,6 +1,6 @@
 window.__RATES__ = {
-  "generated_at": "2026-08-27T00:47 UTC",
-  "usdcad_spot": 1.38362,
+  "generated_at": "2026-08-27T23:03 UTC",
+  "usdcad_spot": 1.38521,
   "pairs": {
     "AAPL.TO": {
       "cad_symbol": "AAPL.TO",
@@ -10,10 +10,10 @@ window.__RATES__ = {
       "aliases": [
         "AAPL.NE"
       ],
-      "cad_price": 44.21,
-      "us_price": 313.45,
-      "k": 0.141043,
-      "price_date": "2026-08-26"
+      "cad_price": 44.34,
+      "us_price": 314.58,
+      "k": 0.14095,
+      "price_date": "2026-08-27"
     },
     "ABBV.TO": {
       "cad_symbol": "ABBV.TO",
@@ -23,10 +23,10 @@ window.__RATES__ = {
       "aliases": [
         "ABBV.NE"
       ],
-      "cad_price": 36.56,
-      "us_price": 262.9,
-      "k": 0.139064,
-      "price_date": "2026-08-26"
+      "cad_price": 35.87,
+      "us_price": 258.15,
+      "k": 0.13895,
+      "price_date": "2026-08-27"
     },
     "ABNB.TO": {
       "cad_symbol": "ABNB.TO",
@@ -36,10 +36,10 @@ window.__RATES__ = {
       "aliases": [
         "ABNB.NE"
       ],
-      "cad_price": 31.31,
-      "us_price": 188.07,
-      "k": 0.166481,
-      "price_date": "2026-08-26"
+      "cad_price": 30.98,
+      "us_price": 184.4,
+      "k": 0.168004,
+      "price_date": "2026-08-27"
     },
     "ADBE.TO": {
       "cad_symbol": "ADBE.TO",
@@ -49,10 +49,10 @@ window.__RATES__ = {
       "aliases": [
         "ADBE.NE"
       ],
-      "cad_price": 10.46,
-      "us_price": 273.47,
-      "k": 0.038249,
-      "price_date": "2026-08-26"
+      "cad_price": 11.04,
+      "us_price": 289.15,
+      "k": 0.038181,
+      "price_date": "2026-08-27"
     },
     "AMD.TO": {
       "cad_symbol": "AMD.TO",
@@ -62,10 +62,10 @@ window.__RATES__ = {
       "aliases": [
         "AMD.NE"
       ],
-      "cad_price": 86.99,
-      "us_price": 480.93,
-      "k": 0.180879,
-      "price_date": "2026-08-26"
+      "cad_price": 86.11,
+      "us_price": 476.67,
+      "k": 0.180649,
+      "price_date": "2026-08-27"
     },
     "AMAT.TO": {
       "cad_symbol": "AMAT.TO",
@@ -75,10 +75,10 @@ window.__RATES__ = {
       "aliases": [
         "AMAT.NE"
       ],
-      "cad_price": 53.19,
-      "us_price": 479.76,
-      "k": 0.110868,
-      "price_date": "2026-08-26"
+      "cad_price": 53.47,
+      "us_price": 482.36,
+      "k": 0.110851,
+      "price_date": "2026-08-27"
     },
     "AMZN.TO": {
       "cad_symbol": "AMZN.TO",
@@ -88,10 +88,10 @@ window.__RATES__ = {
       "aliases": [
         "AMZN.NE"
       ],
-      "cad_price": 29.7,
-      "us_price": 260.28,
-      "k": 0.114108,
-      "price_date": "2026-08-26"
+      "cad_price": 29.29,
+      "us_price": 256.26,
+      "k": 0.114298,
+      "price_date": "2026-08-27"
     },
     "AVGO.TO": {
       "cad_symbol": "AVGO.TO",
@@ -101,10 +101,10 @@ window.__RATES__ = {
       "aliases": [
         "AVGO.NE"
       ],
-      "cad_price": 13.6,
-      "us_price": 355.59,
-      "k": 0.038246,
-      "price_date": "2026-08-26"
+      "cad_price": 14.15,
+      "us_price": 371.54,
+      "k": 0.038085,
+      "price_date": "2026-08-27"
     },
     "AXP.TO": {
       "cad_symbol": "AXP.TO",
@@ -114,10 +114,10 @@ window.__RATES__ = {
       "aliases": [
         "AXP.NE"
       ],
-      "cad_price": 28.48,
-      "us_price": 336.15,
-      "k": 0.084724,
-      "price_date": "2026-08-26"
+      "cad_price": 28.22,
+      "us_price": 334.16,
+      "k": 0.084451,
+      "price_date": "2026-08-27"
     },
     "BA.TO": {
       "cad_symbol": "BA.TO",
@@ -127,21 +127,10 @@ window.__RATES__ = {
       "aliases": [
         "BA.NE"
       ],
-      "cad_price": 35.2,
-      "us_price": 212.09,
-      "k": 0.165967,
-      "price_date": "2026-08-26"
-    },
-    "BAC.NE": {
-      "cad_symbol": "BAC.NE",
-      "us_symbol": "BAC",
-      "type": "cdr",
-      "name": "Bank of America",
-      "aliases": [],
-      "cad_price": 0.045,
-      "us_price": 62.23,
-      "k": 0.000723,
-      "price_date": "2026-08-17 / 2026-08-26"
+      "cad_price": 34.83,
+      "us_price": 209.89,
+      "k": 0.165944,
+      "price_date": "2026-08-27"
     },
     "BRK.TO": {
       "cad_symbol": "BRK.TO",
@@ -153,10 +142,10 @@ window.__RATES__ = {
         "BRK.B",
         "BRK.NE"
       ],
-      "cad_price": 36.57,
-      "us_price": 504.91,
-      "k": 0.072429,
-      "price_date": "2026-08-26"
+      "cad_price": 36.53,
+      "us_price": 503.7,
+      "k": 0.072523,
+      "price_date": "2026-08-27"
     },
     "COIN.TO": {
       "cad_symbol": "COIN.TO",
@@ -166,10 +155,10 @@ window.__RATES__ = {
       "aliases": [
         "COIN.NE"
       ],
-      "cad_price": 11.0,
-      "us_price": 181.78,
-      "k": 0.060513,
-      "price_date": "2026-08-26"
+      "cad_price": 11.51,
+      "us_price": 190.72,
+      "k": 0.06035,
+      "price_date": "2026-08-27"
     },
     "COST.TO": {
       "cad_symbol": "COST.TO",
@@ -179,10 +168,10 @@ window.__RATES__ = {
       "aliases": [
         "COST.NE"
       ],
-      "cad_price": 42.59,
-      "us_price": 956.12,
-      "k": 0.044545,
-      "price_date": "2026-08-26"
+      "cad_price": 41.7,
+      "us_price": 934.66,
+      "k": 0.044615,
+      "price_date": "2026-08-27"
     },
     "CRM.TO": {
       "cad_symbol": "CRM.TO",
@@ -192,10 +181,10 @@ window.__RATES__ = {
       "aliases": [
         "CRM.NE"
       ],
-      "cad_price": 15.68,
-      "us_price": 205.62,
-      "k": 0.076257,
-      "price_date": "2026-08-26"
+      "cad_price": 19.19,
+      "us_price": 252.05,
+      "k": 0.076136,
+      "price_date": "2026-08-27"
     },
     "CSCO.TO": {
       "cad_symbol": "CSCO.TO",
@@ -205,10 +194,10 @@ window.__RATES__ = {
       "aliases": [
         "CSCO.NE"
       ],
-      "cad_price": 53.73,
-      "us_price": 112.36,
-      "k": 0.478195,
-      "price_date": "2026-08-26"
+      "cad_price": 53.59,
+      "us_price": 112.15,
+      "k": 0.477842,
+      "price_date": "2026-08-27"
     },
     "CVS.TO": {
       "cad_symbol": "CVS.TO",
@@ -218,10 +207,10 @@ window.__RATES__ = {
       "aliases": [
         "CVS.NE"
       ],
-      "cad_price": 22.53,
-      "us_price": 94.32,
-      "k": 0.238868,
-      "price_date": "2026-08-26"
+      "cad_price": 22.29,
+      "us_price": 92.92,
+      "k": 0.239884,
+      "price_date": "2026-08-27"
     },
     "DIS.TO": {
       "cad_symbol": "DIS.TO",
@@ -231,10 +220,10 @@ window.__RATES__ = {
       "aliases": [
         "DIS.NE"
       ],
-      "cad_price": 12.22,
-      "us_price": 109.63,
-      "k": 0.111466,
-      "price_date": "2026-08-26"
+      "cad_price": 11.94,
+      "us_price": 106.82,
+      "k": 0.111777,
+      "price_date": "2026-08-27"
     },
     "GE.TO": {
       "cad_symbol": "GE.TO",
@@ -244,10 +233,10 @@ window.__RATES__ = {
       "aliases": [
         "GE.NE"
       ],
-      "cad_price": 46.13,
-      "us_price": 354.39,
-      "k": 0.130167,
-      "price_date": "2026-08-26"
+      "cad_price": 44.56,
+      "us_price": 342.73,
+      "k": 0.130015,
+      "price_date": "2026-08-27"
     },
     "GOOG.TO": {
       "cad_symbol": "GOOG.TO",
@@ -258,10 +247,10 @@ window.__RATES__ = {
         "GOOGL",
         "GOOG.NE"
       ],
-      "cad_price": 54.02,
-      "us_price": 339.1,
-      "k": 0.159304,
-      "price_date": "2026-08-26"
+      "cad_price": 53.84,
+      "us_price": 337.71,
+      "k": 0.159427,
+      "price_date": "2026-08-27"
     },
     "GS.TO": {
       "cad_symbol": "GS.TO",
@@ -271,10 +260,10 @@ window.__RATES__ = {
       "aliases": [
         "GS.NE"
       ],
-      "cad_price": 49.59,
-      "us_price": 1040.46,
-      "k": 0.047662,
-      "price_date": "2026-08-26"
+      "cad_price": 49.51,
+      "us_price": 1040.87,
+      "k": 0.047566,
+      "price_date": "2026-08-27"
     },
     "HD.TO": {
       "cad_symbol": "HD.TO",
@@ -284,10 +273,10 @@ window.__RATES__ = {
       "aliases": [
         "HD.NE"
       ],
-      "cad_price": 20.7,
-      "us_price": 334.85,
-      "k": 0.061819,
-      "price_date": "2026-08-26"
+      "cad_price": 20.33,
+      "us_price": 328.61,
+      "k": 0.061867,
+      "price_date": "2026-08-27"
     },
     "HON.TO": {
       "cad_symbol": "HON.TO",
@@ -297,10 +286,10 @@ window.__RATES__ = {
       "aliases": [
         "HON.NE"
       ],
-      "cad_price": 12.42,
-      "us_price": 220.67,
-      "k": 0.056283,
-      "price_date": "2026-08-26"
+      "cad_price": 12.44,
+      "us_price": 220.39,
+      "k": 0.056445,
+      "price_date": "2026-08-27"
     },
     "IBM.TO": {
       "cad_symbol": "IBM.TO",
@@ -310,10 +299,10 @@ window.__RATES__ = {
       "aliases": [
         "IBM.NE"
       ],
-      "cad_price": 33.93,
-      "us_price": 229.87,
-      "k": 0.147605,
-      "price_date": "2026-08-26"
+      "cad_price": 35.22,
+      "us_price": 238.79,
+      "k": 0.147494,
+      "price_date": "2026-08-27"
     },
     "INTC.TO": {
       "cad_symbol": "INTC.TO",
@@ -323,10 +312,10 @@ window.__RATES__ = {
       "aliases": [
         "INTC.NE"
       ],
-      "cad_price": 49.8,
-      "us_price": 88.24,
-      "k": 0.56437,
-      "price_date": "2026-08-26"
+      "cad_price": 51.67,
+      "us_price": 92.09,
+      "k": 0.561082,
+      "price_date": "2026-08-27"
     },
     "JNJ.TO": {
       "cad_symbol": "JNJ.TO",
@@ -336,10 +325,10 @@ window.__RATES__ = {
       "aliases": [
         "JNJ.NE"
       ],
-      "cad_price": 34.58,
-      "us_price": 270.0,
-      "k": 0.128074,
-      "price_date": "2026-08-26"
+      "cad_price": 34.02,
+      "us_price": 265.77,
+      "k": 0.128005,
+      "price_date": "2026-08-27"
     },
     "JPM.TO": {
       "cad_symbol": "JPM.TO",
@@ -349,10 +338,10 @@ window.__RATES__ = {
       "aliases": [
         "JPM.NE"
       ],
-      "cad_price": 45.5,
-      "us_price": 356.5,
-      "k": 0.12763,
-      "price_date": "2026-08-26"
+      "cad_price": 45.17,
+      "us_price": 354.22,
+      "k": 0.12752,
+      "price_date": "2026-08-27"
     },
     "LLY.TO": {
       "cad_symbol": "LLY.TO",
@@ -362,10 +351,10 @@ window.__RATES__ = {
       "aliases": [
         "LLY.NE"
       ],
-      "cad_price": 42.5,
-      "us_price": 1189.41,
-      "k": 0.035732,
-      "price_date": "2026-08-26"
+      "cad_price": 42.02,
+      "us_price": 1176.1,
+      "k": 0.035728,
+      "price_date": "2026-08-27"
     },
     "MA.TO": {
       "cad_symbol": "MA.TO",
@@ -375,10 +364,10 @@ window.__RATES__ = {
       "aliases": [
         "MA.NE"
       ],
-      "cad_price": 36.1,
-      "us_price": 598.47,
-      "k": 0.06032,
-      "price_date": "2026-08-26"
+      "cad_price": 35.83,
+      "us_price": 591.73,
+      "k": 0.060551,
+      "price_date": "2026-08-27"
     },
     "MCD.TO": {
       "cad_symbol": "MCD.TO",
@@ -388,10 +377,10 @@ window.__RATES__ = {
       "aliases": [
         "MCD.NE"
       ],
-      "cad_price": 22.5,
-      "us_price": 266.93,
-      "k": 0.084292,
-      "price_date": "2026-08-26"
+      "cad_price": 21.94,
+      "us_price": 260.06,
+      "k": 0.084365,
+      "price_date": "2026-08-27"
     },
     "META.TO": {
       "cad_symbol": "META.TO",
@@ -401,10 +390,10 @@ window.__RATES__ = {
       "aliases": [
         "META.NE"
       ],
-      "cad_price": 30.61,
-      "us_price": 576.14,
-      "k": 0.053129,
-      "price_date": "2026-08-26"
+      "cad_price": 30.34,
+      "us_price": 571.1,
+      "k": 0.053126,
+      "price_date": "2026-08-27"
     },
     "MRK.TO": {
       "cad_symbol": "MRK.TO",
@@ -414,10 +403,10 @@ window.__RATES__ = {
       "aliases": [
         "MRK.NE"
       ],
-      "cad_price": 34.1,
-      "us_price": 153.1,
-      "k": 0.22273,
-      "price_date": "2026-08-26"
+      "cad_price": 33.42,
+      "us_price": 149.54,
+      "k": 0.223485,
+      "price_date": "2026-08-27"
     },
     "MSFT.TO": {
       "cad_symbol": "MSFT.TO",
@@ -427,10 +416,10 @@ window.__RATES__ = {
       "aliases": [
         "MSFT.NE"
       ],
-      "cad_price": 34.71,
-      "us_price": 496.37,
-      "k": 0.069928,
-      "price_date": "2026-08-26"
+      "cad_price": 35.3,
+      "us_price": 505.06,
+      "k": 0.069893,
+      "price_date": "2026-08-27"
     },
     "MU.TO": {
       "cad_symbol": "MU.TO",
@@ -440,10 +429,10 @@ window.__RATES__ = {
       "aliases": [
         "MU.NE"
       ],
-      "cad_price": 41.1,
-      "us_price": 938.4,
-      "k": 0.043798,
-      "price_date": "2026-08-26"
+      "cad_price": 40.95,
+      "us_price": 935.39,
+      "k": 0.043779,
+      "price_date": "2026-08-27"
     },
     "NFLX.TO": {
       "cad_symbol": "NFLX.TO",
@@ -453,10 +442,10 @@ window.__RATES__ = {
       "aliases": [
         "NFLX.NE"
       ],
-      "cad_price": 30.58,
-      "us_price": 81.46,
-      "k": 0.375399,
-      "price_date": "2026-08-26"
+      "cad_price": 29.96,
+      "us_price": 79.84,
+      "k": 0.375251,
+      "price_date": "2026-08-27"
     },
     "NKE.TO": {
       "cad_symbol": "NKE.TO",
@@ -466,10 +455,10 @@ window.__RATES__ = {
       "aliases": [
         "NKE.NE"
       ],
-      "cad_price": 6.93,
-      "us_price": 38.59,
-      "k": 0.17958,
-      "price_date": "2026-08-26"
+      "cad_price": 6.88,
+      "us_price": 38.44,
+      "k": 0.17898,
+      "price_date": "2026-08-27"
     },
     "NVDA.TO": {
       "cad_symbol": "NVDA.TO",
@@ -479,10 +468,10 @@ window.__RATES__ = {
       "aliases": [
         "NVDA.NE"
       ],
-      "cad_price": 46.9,
-      "us_price": 209.66,
-      "k": 0.223696,
-      "price_date": "2026-08-26"
+      "cad_price": 50.78,
+      "us_price": 227.98,
+      "k": 0.222739,
+      "price_date": "2026-08-27"
     },
     "ORCL.NE": {
       "cad_symbol": "ORCL.NE",
@@ -503,10 +492,10 @@ window.__RATES__ = {
       "aliases": [
         "PEP.NE"
       ],
-      "cad_price": 21.08,
-      "us_price": 142.19,
-      "k": 0.148252,
-      "price_date": "2026-08-26"
+      "cad_price": 20.76,
+      "us_price": 139.72,
+      "k": 0.148583,
+      "price_date": "2026-08-27"
     },
     "PFE.TO": {
       "cad_symbol": "PFE.TO",
@@ -516,10 +505,10 @@ window.__RATES__ = {
       "aliases": [
         "PFE.NE"
       ],
-      "cad_price": 12.6,
-      "us_price": 28.3,
-      "k": 0.44523,
-      "price_date": "2026-08-26"
+      "cad_price": 12.46,
+      "us_price": 28.02,
+      "k": 0.444682,
+      "price_date": "2026-08-27"
     },
     "PG.TO": {
       "cad_symbol": "PG.TO",
@@ -529,10 +518,10 @@ window.__RATES__ = {
       "aliases": [
         "PG.NE"
       ],
-      "cad_price": 23.94,
-      "us_price": 145.0,
-      "k": 0.165103,
-      "price_date": "2026-08-26"
+      "cad_price": 23.61,
+      "us_price": 143.14,
+      "k": 0.164943,
+      "price_date": "2026-08-27"
     },
     "PLTR.TO": {
       "cad_symbol": "PLTR.TO",
@@ -542,10 +531,10 @@ window.__RATES__ = {
       "aliases": [
         "PLTR.NE"
       ],
-      "cad_price": 13.4,
-      "us_price": 177.5,
-      "k": 0.075493,
-      "price_date": "2026-08-26"
+      "cad_price": 14.02,
+      "us_price": 185.93,
+      "k": 0.075405,
+      "price_date": "2026-08-27"
     },
     "PYPL.TO": {
       "cad_symbol": "PYPL.TO",
@@ -555,10 +544,10 @@ window.__RATES__ = {
       "aliases": [
         "PYPL.NE"
       ],
-      "cad_price": 4.42,
-      "us_price": 61.81,
-      "k": 0.071509,
-      "price_date": "2026-08-26"
+      "cad_price": 4.39,
+      "us_price": 61.47,
+      "k": 0.071417,
+      "price_date": "2026-08-27"
     },
     "QCOM.TO": {
       "cad_symbol": "QCOM.TO",
@@ -568,10 +557,10 @@ window.__RATES__ = {
       "aliases": [
         "QCOM.NE"
       ],
-      "cad_price": 21.23,
-      "us_price": 163.72,
-      "k": 0.129673,
-      "price_date": "2026-08-26"
+      "cad_price": 21.36,
+      "us_price": 164.78,
+      "k": 0.129627,
+      "price_date": "2026-08-27"
     },
     "SBUX.TO": {
       "cad_symbol": "SBUX.TO",
@@ -581,10 +570,10 @@ window.__RATES__ = {
       "aliases": [
         "SBUX.NE"
       ],
-      "cad_price": 29.71,
-      "us_price": 108.49,
-      "k": 0.27385,
-      "price_date": "2026-08-26"
+      "cad_price": 29.46,
+      "us_price": 107.26,
+      "k": 0.27466,
+      "price_date": "2026-08-27"
     },
     "SPCX.TO": {
       "cad_symbol": "SPCX.TO",
@@ -594,10 +583,10 @@ window.__RATES__ = {
       "aliases": [
         "SPCX.NE"
       ],
-      "cad_price": 23.29,
-      "us_price": 139.63,
-      "k": 0.166798,
-      "price_date": "2026-08-26"
+      "cad_price": 23.48,
+      "us_price": 140.87,
+      "k": 0.166679,
+      "price_date": "2026-08-27"
     },
     "TSLA.TO": {
       "cad_symbol": "TSLA.TO",
@@ -607,10 +596,10 @@ window.__RATES__ = {
       "aliases": [
         "TSLA.NE"
       ],
-      "cad_price": 30.0,
-      "us_price": 345.82,
-      "k": 0.08675,
-      "price_date": "2026-08-26"
+      "cad_price": 30.76,
+      "us_price": 354.81,
+      "k": 0.086694,
+      "price_date": "2026-08-27"
     },
     "TXN.TO": {
       "cad_symbol": "TXN.TO",
@@ -620,10 +609,10 @@ window.__RATES__ = {
       "aliases": [
         "TXN.NE"
       ],
-      "cad_price": 27.26,
-      "us_price": 261.77,
-      "k": 0.104137,
-      "price_date": "2026-08-26"
+      "cad_price": 27.55,
+      "us_price": 266.54,
+      "k": 0.103362,
+      "price_date": "2026-08-27"
     },
     "UBER.TO": {
       "cad_symbol": "UBER.TO",
@@ -633,10 +622,10 @@ window.__RATES__ = {
       "aliases": [
         "UBER.NE"
       ],
-      "cad_price": 11.49,
-      "us_price": 78.49,
-      "k": 0.146388,
-      "price_date": "2026-08-26"
+      "cad_price": 11.26,
+      "us_price": 76.95,
+      "k": 0.146329,
+      "price_date": "2026-08-27"
     },
     "UNH.TO": {
       "cad_symbol": "UNH.TO",
@@ -646,10 +635,10 @@ window.__RATES__ = {
       "aliases": [
         "UNH.NE"
       ],
-      "cad_price": 18.37,
-      "us_price": 401.01,
-      "k": 0.045809,
-      "price_date": "2026-08-26"
+      "cad_price": 18.05,
+      "us_price": 395.05,
+      "k": 0.04569,
+      "price_date": "2026-08-27"
     },
     "UPS.TO": {
       "cad_symbol": "UPS.TO",
@@ -660,9 +649,9 @@ window.__RATES__ = {
         "UPS.NE"
       ],
       "cad_price": 13.27,
-      "us_price": 105.65,
-      "k": 0.125603,
-      "price_date": "2026-08-26"
+      "us_price": 105.68,
+      "k": 0.125568,
+      "price_date": "2026-08-27"
     },
     "VZ.TO": {
       "cad_symbol": "VZ.TO",
@@ -672,10 +661,10 @@ window.__RATES__ = {
       "aliases": [
         "VZ.NE"
       ],
-      "cad_price": 21.17,
-      "us_price": 50.19,
-      "k": 0.421797,
-      "price_date": "2026-08-26"
+      "cad_price": 20.79,
+      "us_price": 49.43,
+      "k": 0.420595,
+      "price_date": "2026-08-27"
     },
     "WMT.TO": {
       "cad_symbol": "WMT.TO",
@@ -685,10 +674,10 @@ window.__RATES__ = {
       "aliases": [
         "WMT.NE"
       ],
-      "cad_price": 43.64,
-      "us_price": 104.34,
-      "k": 0.418248,
-      "price_date": "2026-08-26"
+      "cad_price": 42.9,
+      "us_price": 102.63,
+      "k": 0.418006,
+      "price_date": "2026-08-27"
     },
     "XOM.TO": {
       "cad_symbol": "XOM.TO",
@@ -698,10 +687,10 @@ window.__RATES__ = {
       "aliases": [
         "XOM.NE"
       ],
-      "cad_price": 28.44,
-      "us_price": 158.19,
-      "k": 0.179784,
-      "price_date": "2026-08-26"
+      "cad_price": 28.17,
+      "us_price": 156.44,
+      "k": 0.180069,
+      "price_date": "2026-08-27"
     },
     "SHOP.TO": {
       "cad_symbol": "SHOP.TO",
@@ -709,10 +698,10 @@ window.__RATES__ = {
       "type": "cross",
       "name": "Shopify",
       "aliases": [],
-      "cad_price": 208.5,
-      "us_price": 150.29,
-      "k": 1.387318,
-      "price_date": "2026-08-26"
+      "cad_price": 213.67,
+      "us_price": 154.33,
+      "k": 1.384501,
+      "price_date": "2026-08-27"
     },
     "TD.TO": {
       "cad_symbol": "TD.TO",
@@ -720,10 +709,10 @@ window.__RATES__ = {
       "type": "cross",
       "name": "TD Bank",
       "aliases": [],
-      "cad_price": 165.87,
-      "us_price": 119.43,
-      "k": 1.388847,
-      "price_date": "2026-08-26"
+      "cad_price": 167.84,
+      "us_price": 121.09,
+      "k": 1.386076,
+      "price_date": "2026-08-27"
     },
     "RY.TO": {
       "cad_symbol": "RY.TO",
@@ -731,10 +720,10 @@ window.__RATES__ = {
       "type": "cross",
       "name": "Royal Bank of Canada",
       "aliases": [],
-      "cad_price": 288.11,
-      "us_price": 207.21,
-      "k": 1.390425,
-      "price_date": "2026-08-26"
+      "cad_price": 283.47,
+      "us_price": 204.54,
+      "k": 1.38589,
+      "price_date": "2026-08-27"
     },
     "BNS.TO": {
       "cad_symbol": "BNS.TO",
@@ -742,10 +731,10 @@ window.__RATES__ = {
       "type": "cross",
       "name": "Scotiabank",
       "aliases": [],
-      "cad_price": 129.81,
-      "us_price": 93.59,
-      "k": 1.387007,
-      "price_date": "2026-08-26"
+      "cad_price": 128.84,
+      "us_price": 92.93,
+      "k": 1.38642,
+      "price_date": "2026-08-27"
     },
     "BMO.TO": {
       "cad_symbol": "BMO.TO",
@@ -753,10 +742,10 @@ window.__RATES__ = {
       "type": "cross",
       "name": "Bank of Montreal",
       "aliases": [],
-      "cad_price": 239.97,
-      "us_price": 172.9,
-      "k": 1.387912,
-      "price_date": "2026-08-26"
+      "cad_price": 238.69,
+      "us_price": 172.13,
+      "k": 1.386684,
+      "price_date": "2026-08-27"
     },
     "CM.TO": {
       "cad_symbol": "CM.TO",
@@ -764,10 +753,10 @@ window.__RATES__ = {
       "type": "cross",
       "name": "CIBC",
       "aliases": [],
-      "cad_price": 163.82,
-      "us_price": 118.2,
-      "k": 1.385956,
-      "price_date": "2026-08-26"
+      "cad_price": 159.16,
+      "us_price": 114.84,
+      "k": 1.385928,
+      "price_date": "2026-08-27"
     },
     "ENB.TO": {
       "cad_symbol": "ENB.TO",
@@ -775,10 +764,10 @@ window.__RATES__ = {
       "type": "cross",
       "name": "Enbridge",
       "aliases": [],
-      "cad_price": 69.8,
-      "us_price": 50.37,
-      "k": 1.385746,
-      "price_date": "2026-08-26"
+      "cad_price": 69.28,
+      "us_price": 49.94,
+      "k": 1.387265,
+      "price_date": "2026-08-27"
     },
     "TRP.TO": {
       "cad_symbol": "TRP.TO",
@@ -786,10 +775,10 @@ window.__RATES__ = {
       "type": "cross",
       "name": "TC Energy",
       "aliases": [],
-      "cad_price": 87.16,
-      "us_price": 62.86,
-      "k": 1.386573,
-      "price_date": "2026-08-26"
+      "cad_price": 85.91,
+      "us_price": 62.05,
+      "k": 1.384529,
+      "price_date": "2026-08-27"
     },
     "SU.TO": {
       "cad_symbol": "SU.TO",
@@ -797,10 +786,10 @@ window.__RATES__ = {
       "type": "cross",
       "name": "Suncor",
       "aliases": [],
-      "cad_price": 91.13,
-      "us_price": 65.67,
-      "k": 1.387696,
-      "price_date": "2026-08-26"
+      "cad_price": 92.09,
+      "us_price": 66.42,
+      "k": 1.38648,
+      "price_date": "2026-08-27"
     },
     "CNQ.TO": {
       "cad_symbol": "CNQ.TO",
@@ -808,10 +797,10 @@ window.__RATES__ = {
       "type": "cross",
       "name": "Canadian Natural Resources",
       "aliases": [],
-      "cad_price": 68.93,
-      "us_price": 49.64,
-      "k": 1.388598,
-      "price_date": "2026-08-26"
+      "cad_price": 69.03,
+      "us_price": 49.77,
+      "k": 1.38698,
+      "price_date": "2026-08-27"
     },
     "CVE.TO": {
       "cad_symbol": "CVE.TO",
@@ -819,10 +808,10 @@ window.__RATES__ = {
       "type": "cross",
       "name": "Cenovus",
       "aliases": [],
-      "cad_price": 43.67,
-      "us_price": 31.48,
-      "k": 1.38723,
-      "price_date": "2026-08-26"
+      "cad_price": 43.94,
+      "us_price": 31.71,
+      "k": 1.385683,
+      "price_date": "2026-08-27"
     },
     "MFC.TO": {
       "cad_symbol": "MFC.TO",
@@ -830,10 +819,10 @@ window.__RATES__ = {
       "type": "cross",
       "name": "Manulife",
       "aliases": [],
-      "cad_price": 59.97,
-      "us_price": 43.23,
-      "k": 1.387231,
-      "price_date": "2026-08-26"
+      "cad_price": 59.8,
+      "us_price": 43.15,
+      "k": 1.385863,
+      "price_date": "2026-08-27"
     },
     "SLF.TO": {
       "cad_symbol": "SLF.TO",
@@ -841,10 +830,10 @@ window.__RATES__ = {
       "type": "cross",
       "name": "Sun Life",
       "aliases": [],
-      "cad_price": 109.65,
-      "us_price": 79.05,
-      "k": 1.387097,
-      "price_date": "2026-08-26"
+      "cad_price": 109.02,
+      "us_price": 78.61,
+      "k": 1.386846,
+      "price_date": "2026-08-27"
     },
     "CP.TO": {
       "cad_symbol": "CP.TO",
@@ -852,10 +841,10 @@ window.__RATES__ = {
       "type": "cross",
       "name": "CPKC",
       "aliases": [],
-      "cad_price": 131.4,
-      "us_price": 94.71,
-      "k": 1.387393,
-      "price_date": "2026-08-26"
+      "cad_price": 130.14,
+      "us_price": 93.86,
+      "k": 1.386533,
+      "price_date": "2026-08-27"
     },
     "CNR.TO": {
       "cad_symbol": "CNR.TO",
@@ -863,10 +852,10 @@ window.__RATES__ = {
       "type": "cross",
       "name": "Canadian National Railway",
       "aliases": [],
-      "cad_price": 176.97,
-      "us_price": 127.54,
-      "k": 1.387565,
-      "price_date": "2026-08-26"
+      "cad_price": 175.15,
+      "us_price": 126.48,
+      "k": 1.384804,
+      "price_date": "2026-08-27"
     },
     "TECK-B.TO": {
       "cad_symbol": "TECK-B.TO",
@@ -876,10 +865,10 @@ window.__RATES__ = {
       "aliases": [
         "TECK.B"
       ],
-      "cad_price": 98.76,
-      "us_price": 71.12,
-      "k": 1.388639,
-      "price_date": "2026-08-26"
+      "cad_price": 97.77,
+      "us_price": 70.54,
+      "k": 1.386022,
+      "price_date": "2026-08-27"
     },
     "AEM.TO": {
       "cad_symbol": "AEM.TO",
@@ -887,10 +876,10 @@ window.__RATES__ = {
       "type": "cross",
       "name": "Agnico Eagle",
       "aliases": [],
-      "cad_price": 296.8,
-      "us_price": 214.04,
-      "k": 1.386657,
-      "price_date": "2026-08-26"
+      "cad_price": 298.24,
+      "us_price": 215.44,
+      "k": 1.38433,
+      "price_date": "2026-08-27"
     },
     "WCN.TO": {
       "cad_symbol": "WCN.TO",
@@ -898,10 +887,10 @@ window.__RATES__ = {
       "type": "cross",
       "name": "Waste Connections",
       "aliases": [],
-      "cad_price": 232.07,
-      "us_price": 167.15,
-      "k": 1.388394,
-      "price_date": "2026-08-26"
+      "cad_price": 229.79,
+      "us_price": 165.68,
+      "k": 1.386951,
+      "price_date": "2026-08-27"
     },
     "QSR.TO": {
       "cad_symbol": "QSR.TO",
@@ -909,10 +898,10 @@ window.__RATES__ = {
       "type": "cross",
       "name": "Restaurant Brands",
       "aliases": [],
-      "cad_price": 110.14,
-      "us_price": 79.26,
-      "k": 1.389604,
-      "price_date": "2026-08-26"
+      "cad_price": 108.12,
+      "us_price": 78.07,
+      "k": 1.384911,
+      "price_date": "2026-08-27"
     },
     "BN.TO": {
       "cad_symbol": "BN.TO",
@@ -920,10 +909,10 @@ window.__RATES__ = {
       "type": "cross",
       "name": "Brookfield Corp",
       "aliases": [],
-      "cad_price": 57.86,
-      "us_price": 41.67,
-      "k": 1.388529,
-      "price_date": "2026-08-26"
+      "cad_price": 57.43,
+      "us_price": 41.43,
+      "k": 1.386194,
+      "price_date": "2026-08-27"
     },
     "BAM.TO": {
       "cad_symbol": "BAM.TO",
@@ -931,10 +920,10 @@ window.__RATES__ = {
       "type": "cross",
       "name": "Brookfield Asset Management",
       "aliases": [],
-      "cad_price": 72.22,
-      "us_price": 52.01,
-      "k": 1.388579,
-      "price_date": "2026-08-26"
+      "cad_price": 72.16,
+      "us_price": 52.07,
+      "k": 1.385827,
+      "price_date": "2026-08-27"
     }
   }
 };
