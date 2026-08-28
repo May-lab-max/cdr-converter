@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-28T00:00 UTC",
-  "usdcad_spot": 1.38503,
+  "generated_at": "2026-08-28T04:21 UTC",
+  "usdcad_spot": 1.38514,
   "pairs": {
     "AAPL.TO": {
       "cad_symbol": "AAPL.TO",
@@ -23,10 +23,10 @@
       "aliases": [
         "ABBV.NE"
       ],
-      "cad_price": 35.87,
-      "us_price": 258.15,
-      "k": 0.13895,
-      "price_date": "2026-08-27"
+      "cad_price": 36.56,
+      "us_price": 262.9,
+      "k": 0.139064,
+      "price_date": "2026-08-26"
     },
     "ABNB.TO": {
       "cad_symbol": "ABNB.TO",
@@ -865,10 +865,10 @@
       "aliases": [
         "TECK.B"
       ],
-      "cad_price": 97.77,
-      "us_price": 70.54,
-      "k": 1.386022,
-      "price_date": "2026-08-27"
+      "cad_price": 98.76,
+      "us_price": 71.12,
+      "k": 1.388639,
+      "price_date": "2026-08-26"
     },
     "AEM.TO": {
       "cad_symbol": "AEM.TO",
