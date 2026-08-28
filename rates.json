@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-28T04:21 UTC",
-  "usdcad_spot": 1.38514,
+  "generated_at": "2026-08-28T05:23 UTC",
+  "usdcad_spot": 1.38521,
   "pairs": {
     "AAPL.TO": {
       "cad_symbol": "AAPL.TO",
@@ -130,21 +130,6 @@
       "cad_price": 34.83,
       "us_price": 209.89,
       "k": 0.165944,
-      "price_date": "2026-08-27"
-    },
-    "BRK.TO": {
-      "cad_symbol": "BRK.TO",
-      "us_symbol": "BRK-B",
-      "type": "cdr",
-      "name": "Berkshire Hathaway",
-      "aliases": [
-        "BRKB",
-        "BRK.B",
-        "BRK.NE"
-      ],
-      "cad_price": 36.53,
-      "us_price": 503.7,
-      "k": 0.072523,
       "price_date": "2026-08-27"
     },
     "COIN.TO": {
