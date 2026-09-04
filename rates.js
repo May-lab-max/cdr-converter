@@ -1,5 +1,5 @@
 window.__RATES__ = {
-  "generated_at": "2026-09-04T22:20 UTC",
+  "generated_at": "2026-09-04T23:02 UTC",
   "usdcad_spot": 1.3837,
   "pairs": {
     "AAPL.TO": {
