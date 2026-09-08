@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-08T22:37 UTC",
-  "usdcad_spot": 1.37838,
+  "generated_at": "2026-09-08T23:23 UTC",
+  "usdcad_spot": 1.378,
   "pairs": {
     "AAPL.TO": {
       "cad_symbol": "AAPL.TO",
@@ -302,19 +302,6 @@
       "cad_price": 34.24,
       "us_price": 232.09,
       "k": 0.147529,
-      "price_date": "2026-09-08"
-    },
-    "INTC.TO": {
-      "cad_symbol": "INTC.TO",
-      "us_symbol": "INTC",
-      "type": "cdr",
-      "name": "Intel",
-      "aliases": [
-        "INTC.NE"
-      ],
-      "cad_price": 58.5,
-      "us_price": 104.47,
-      "k": 0.559969,
       "price_date": "2026-09-08"
     },
     "JNJ.TO": {
