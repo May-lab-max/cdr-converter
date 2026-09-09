@@ -1,6 +1,6 @@
 window.__RATES__ = {
-  "generated_at": "2026-09-09T22:31 UTC",
-  "usdcad_spot": 1.38009,
+  "generated_at": "2026-09-09T23:14 UTC",
+  "usdcad_spot": 1.3801,
   "pairs": {
     "AAPL.TO": {
       "cad_symbol": "AAPL.TO",
@@ -289,19 +289,6 @@ window.__RATES__ = {
       "cad_price": 11.55,
       "us_price": 204.93,
       "k": 0.056361,
-      "price_date": "2026-09-09"
-    },
-    "IBM.TO": {
-      "cad_symbol": "IBM.TO",
-      "us_symbol": "IBM",
-      "type": "cdr",
-      "name": "IBM",
-      "aliases": [
-        "IBM.NE"
-      ],
-      "cad_price": 35.36,
-      "us_price": 239.94,
-      "k": 0.14737,
       "price_date": "2026-09-09"
     },
     "INTC.TO": {
