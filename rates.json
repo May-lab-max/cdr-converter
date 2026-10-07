@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-06T23:46 UTC",
-  "usdcad_spot": 1.421,
+  "generated_at": "2026-10-07T00:41 UTC",
+  "usdcad_spot": 1.4211,
   "pairs": {
     "AAPL.TO": {
       "cad_symbol": "AAPL.TO",
@@ -23,10 +23,10 @@
       "aliases": [
         "ABBV.NE"
       ],
-      "cad_price": 37.03,
-      "us_price": 266.69,
-      "k": 0.13885,
-      "price_date": "2026-10-06"
+      "cad_price": 36.9,
+      "us_price": 265.76,
+      "k": 0.138847,
+      "price_date": "2026-10-05"
     },
     "ABNB.TO": {
       "cad_symbol": "ABNB.TO",
@@ -36,10 +36,10 @@
       "aliases": [
         "ABNB.NE"
       ],
-      "cad_price": 26.58,
-      "us_price": 160.39,
-      "k": 0.165721,
-      "price_date": "2026-10-06"
+      "cad_price": 27.15,
+      "us_price": 164.07,
+      "k": 0.165478,
+      "price_date": "2026-10-05"
     },
     "ADBE.TO": {
       "cad_symbol": "ADBE.TO",
@@ -166,10 +166,10 @@
       "aliases": [
         "COIN.NE"
       ],
-      "cad_price": 11.2,
-      "us_price": 185.74,
-      "k": 0.060299,
-      "price_date": "2026-10-06"
+      "cad_price": 11.34,
+      "us_price": 188.22,
+      "k": 0.060249,
+      "price_date": "2026-10-05"
     },
     "COST.TO": {
       "cad_symbol": "COST.TO",
@@ -258,10 +258,10 @@
         "GOOGL",
         "GOOG.NE"
       ],
-      "cad_price": 54.8,
-      "us_price": 344.59,
-      "k": 0.15903,
-      "price_date": "2026-10-06"
+      "cad_price": 54.72,
+      "us_price": 343.83,
+      "k": 0.159148,
+      "price_date": "2026-10-05"
     },
     "GS.TO": {
       "cad_symbol": "GS.TO",
@@ -401,10 +401,10 @@
       "aliases": [
         "META.NE"
       ],
-      "cad_price": 39.15,
-      "us_price": 738.88,
-      "k": 0.052986,
-      "price_date": "2026-10-06"
+      "cad_price": 39.26,
+      "us_price": 741.9,
+      "k": 0.052918,
+      "price_date": "2026-10-05"
     },
     "MRK.TO": {
       "cad_symbol": "MRK.TO",
@@ -531,10 +531,10 @@
       "aliases": [
         "PLTR.NE"
       ],
-      "cad_price": 14.47,
-      "us_price": 192.07,
-      "k": 0.075337,
-      "price_date": "2026-10-06"
+      "cad_price": 14.26,
+      "us_price": 189.4,
+      "k": 0.07529,
+      "price_date": "2026-10-05"
     },
     "PYPL.TO": {
       "cad_symbol": "PYPL.TO",
@@ -544,10 +544,10 @@
       "aliases": [
         "PYPL.NE"
       ],
-      "cad_price": 3.88,
-      "us_price": 54.61,
-      "k": 0.071049,
-      "price_date": "2026-10-06"
+      "cad_price": 3.87,
+      "us_price": 54.41,
+      "k": 0.071127,
+      "price_date": "2026-10-05"
     },
     "QCOM.TO": {
       "cad_symbol": "QCOM.TO",
@@ -583,10 +583,10 @@
       "aliases": [
         "SPCX.NE"
       ],
-      "cad_price": 28.6,
-      "us_price": 171.92,
-      "k": 0.166356,
-      "price_date": "2026-10-06"
+      "cad_price": 28.46,
+      "us_price": 171.09,
+      "k": 0.166345,
+      "price_date": "2026-10-05"
     },
     "TSLA.TO": {
       "cad_symbol": "TSLA.TO",
@@ -622,10 +622,10 @@
       "aliases": [
         "UBER.NE"
       ],
-      "cad_price": 10.12,
-      "us_price": 69.08,
-      "k": 0.146497,
-      "price_date": "2026-10-06"
+      "cad_price": 10.19,
+      "us_price": 69.48,
+      "k": 0.146661,
+      "price_date": "2026-10-05"
     },
     "UNH.TO": {
       "cad_symbol": "UNH.TO",
@@ -709,10 +709,10 @@
       "type": "cross",
       "name": "Shopify",
       "aliases": [],
-      "cad_price": 233.73,
-      "us_price": 164.44,
-      "k": 1.421369,
-      "price_date": "2026-10-06"
+      "cad_price": 228.17,
+      "us_price": 160.11,
+      "k": 1.425083,
+      "price_date": "2026-10-05"
     },
     "TD.TO": {
       "cad_symbol": "TD.TO",
@@ -909,10 +909,10 @@
       "type": "cross",
       "name": "Restaurant Brands",
       "aliases": [],
-      "cad_price": 99.92,
-      "us_price": 70.24,
-      "k": 1.422551,
-      "price_date": "2026-10-06"
+      "cad_price": 99.78,
+      "us_price": 69.87,
+      "k": 1.428081,
+      "price_date": "2026-10-05"
     },
     "BN.TO": {
       "cad_symbol": "BN.TO",
@@ -931,10 +931,10 @@
       "type": "cross",
       "name": "Brookfield Asset Management",
       "aliases": [],
-      "cad_price": 64.29,
-      "us_price": 45.21,
-      "k": 1.422031,
-      "price_date": "2026-10-06"
+      "cad_price": 63.8,
+      "us_price": 44.73,
+      "k": 1.426336,
+      "price_date": "2026-10-05"
     }
   }
 }
