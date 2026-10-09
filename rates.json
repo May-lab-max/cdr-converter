@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-09T00:18 UTC",
-  "usdcad_spot": 1.4217,
+  "generated_at": "2026-10-09T01:13 UTC",
+  "usdcad_spot": 1.42165,
   "pairs": {
     "AAPL.TO": {
       "cad_symbol": "AAPL.TO",
@@ -789,17 +789,6 @@
       "cad_price": 97.26,
       "us_price": 68.14,
       "k": 1.427355,
-      "price_date": "2026-10-07"
-    },
-    "CNQ.TO": {
-      "cad_symbol": "CNQ.TO",
-      "us_symbol": "CNQ",
-      "type": "cross",
-      "name": "Canadian Natural Resources",
-      "aliases": [],
-      "cad_price": 67.8,
-      "us_price": 47.5,
-      "k": 1.427368,
       "price_date": "2026-10-07"
     },
     "CVE.TO": {
