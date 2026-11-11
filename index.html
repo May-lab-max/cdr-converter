@@ -4,36 +4,47 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CDR ⇄ USD Converter</title>
+<script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;600&display=swap">
 <style>
+  /* maylab design system: light by default; .dark (set by the toggle) uses Vercel's Geist dark palette. */
   :root {
-    --bg: #f7f6f3; --card: #ffffff; --ink: #1a1a1a; --muted: #6b6b6b;
-    --line: #e4e2dd; --accent: #0d6e5f; --amber: #9a6700; --chip: #efede8;
-    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    --bg: #ffffff; --card: #ffffff; --ink: #111827; --muted: #6b7280; --field: #f9fafb;
+    --line: #e5e7eb; --accent: #6a4ce1; --amber: #a16207; --chip: #f3f4f6; --hover: #f9fafb;
+    --mono: "Geist Mono", ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #131313; --card: #1c1c1c; --ink: #ececec; --muted: #9a9a9a;
-      --line: #2c2c2c; --accent: #4cc2ae; --amber: #d4a72c; --chip: #262626;
-    }
+  :root.dark {
+    --bg: #000000; --card: #0a0a0a; --ink: #ededed; --muted: #a1a1a1; --field: #000000;
+    --line: rgba(255,255,255,0.145); --accent: #ededed; --amber: #f5a524; --chip: #1a1a1a; --hover: #1a1a1a;
   }
   * { box-sizing: border-box; margin: 0; }
   body {
     background: var(--bg); color: var(--ink); min-height: 100vh;
-    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    display: flex; flex-direction: column; align-items: center; padding: 48px 16px;
+    font: 15px/1.5 "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    display: flex; flex-direction: column; align-items: center; padding: 56px 24px;
   }
+  .bar { width: 100%; max-width: 720px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 56px; }
+  .brand { font-size: 18px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+  .brand span { color: var(--accent); }
+  .theme { display: inline-flex; padding: 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; }
+  .theme:hover { background: var(--hover); }
+  .theme svg { width: 16px; height: 16px; }
+  .theme .sun, :root.dark .theme .moon { display: none; }
+  :root.dark .theme .sun { display: block; }
   header { text-align: center; margin-bottom: 28px; }
-  header h1 { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+  header h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.025em; }
   header p { color: var(--muted); font-size: 13px; margin-top: 4px; }
   .card {
-    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
     width: 100%; max-width: 520px; padding: 24px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
   }
   .search-wrap { position: relative; }
   #symbol {
     width: 100%; padding: 12px 14px; font-size: 16px; border-radius: 10px;
-    border: 1px solid var(--line); background: var(--bg); color: var(--ink); outline: none;
+    border: 1px solid var(--line); background: var(--field); color: var(--ink); outline: none; font-family: inherit;
   }
   #symbol:focus { border-color: var(--accent); }
   #suggest {
@@ -63,7 +74,7 @@
   }
   .badge.hedged { color: var(--accent); border-color: var(--accent); }
   .amount { display: flex; align-items: center; gap: 10px; border: 1px solid var(--line);
-    border-radius: 10px; padding: 10px 14px; margin-bottom: 10px; background: var(--bg); }
+    border-radius: 10px; padding: 10px 14px; margin-bottom: 10px; background: var(--field); }
   .amount:focus-within { border-color: var(--accent); }
   .amount label { font-family: var(--mono); font-size: 13px; font-weight: 600; min-width: 62px; flex-shrink: 0; }
   .amount .cur { color: var(--muted); font-size: 13px; }
@@ -77,7 +88,8 @@
   .meta .warn { color: var(--amber); }
   footer { color: var(--muted); font-size: 12px; margin-top: 26px; max-width: 520px; text-align: center; }
   @media (max-width: 480px) {
-    body { padding: 28px 12px; }
+    body { padding: 28px 16px; }
+    .bar { margin-bottom: 32px; }
     header { margin-bottom: 20px; }
     .card { padding: 18px 14px; }
     .amount input { font-size: 20px; }
@@ -85,6 +97,13 @@
 </style>
 </head>
 <body>
+<nav class="bar">
+  <a class="brand" href="https://maylab.app">may<span>lab</span></a>
+  <button class="theme" id="theme" type="button" aria-label="Toggle dark mode">
+    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+  </button>
+</nav>
 <header>
   <h1>CDR ⇄ USD converter</h1>
 </header>
@@ -119,6 +138,12 @@
 
 <footer id="foot"></footer>
 
+<script>
+document.getElementById('theme').addEventListener('click', function () {
+  var dark = document.documentElement.classList.toggle('dark');
+  try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
+});
+</script>
 <script src="rates.js"></script>
 <script>
 (function () {
