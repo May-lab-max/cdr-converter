@@ -149,7 +149,9 @@ document.getElementById('theme').addEventListener('click', function () {
 (function () {
   'use strict';
 
-  const POPULAR = ['NVDA.TO','AAPL.TO','MSFT.TO','AMZN.TO','GOOG.TO','META.TO','TSLA.TO','AVGO.TO','AMAT.TO','MU.TO','SPCX.TO','BRK.TO','SHOP.TO'];
+  // Quick chips, ranked by weight in QQQ (Invesco holdings, 2026-11-05; Alphabet = GOOGL + GOOG).
+  // BRK is not in QQQ, so it comes last.
+  const POPULAR = ['AAPL.TO','NVDA.TO','MSFT.TO','GOOG.TO','AMZN.TO','MU.TO','TSLA.TO','META.TO','SPCX.TO','AVGO.TO','AMAT.TO','SHOP.TO','BRK.TO'];
   const $ = id => document.getElementById(id);
 
   function boot(rates) {
