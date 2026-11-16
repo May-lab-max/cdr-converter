@@ -86,6 +86,13 @@
   .kline b { color: var(--ink); font-family: var(--mono); font-weight: 600; }
   .meta { text-align: center; color: var(--muted); font-size: 12px; margin-top: 10px; }
   .meta .warn { color: var(--amber); }
+  .method { width: 100%; max-width: 520px; margin-top: 28px; color: var(--muted); font-size: 13px; }
+  .method h2 { color: var(--ink); font-size: 13px; font-weight: 600; margin: 0 0 6px; }
+  .method h2 + ul { margin-bottom: 16px; }
+  .method ul { padding-left: 18px; }
+  .method li { margin: 3px 0; }
+  .method b { color: var(--ink); font-weight: 600; }
+  .method code { font-family: var(--mono); font-size: 12px; color: var(--ink); }
   footer { color: var(--muted); font-size: 12px; margin-top: 26px; max-width: 520px; text-align: center; }
   @media (max-width: 480px) {
     body { padding: 28px 16px; }
@@ -135,6 +142,21 @@
     <div class="meta" id="meta"></div>
   </div>
 </div>
+
+<section class="method">
+  <h2>Methodology</h2>
+  <ul>
+    <li><code>k</code> = median of CA$ ÷ US$ over every minute both tapes traded, latest session. Refreshed after the open and after the close.</li>
+    <li>CDRs are CAD-hedged, so FX moves don’t change <code>k</code> — one value holds all day.</li>
+    <li><code>±</code> next to <code>k</code> = spread of that session’s minute ratios.</li>
+  </ul>
+  <h2>Accuracy</h2>
+  <ul>
+    <li>Backtest, 48 CDRs, Nov 2026, using a day-old <code>k</code>: <b>96%</b> of minutes within <b>±0.25%</b>, <b>99.6%</b> within <b>±0.5%</b>.</li>
+    <li>Guards: needs 20+ matched minutes (else falls back to closes), never reverts to an older session, flags a band wider than ±0.25%.</li>
+    <li>Volatile market? Compare quotes from the same moment. Free sites often delay TSX quotes 15 min — that alone can exceed 1%.</li>
+  </ul>
+</section>
 
 <footer id="foot"></footer>
 
@@ -214,7 +236,8 @@ document.getElementById('theme').addEventListener('click', function () {
         ? 'Median of ' + p.k_minutes + ' matched minutes'
         : 'Closes';
       $('meta').innerHTML = how + ' · <b>' + fmtDate(p.price_date) + '</b>'
-        + (mismatch ? ' <span class="warn">— different days, approximate</span>' : '');
+        + (mismatch ? ' <span class="warn">— different days, approximate</span>' : '')
+        + (p.k_band_bp > 25 ? ' <span class="warn">— wide spread, approximate</span>' : '');
       const u = new URL(location); u.searchParams.set('s', p.cad_symbol); history.replaceState(null, '', u);
     }
 
@@ -291,8 +314,7 @@ document.getElementById('theme').addEventListener('click', function () {
 
     // ---- footer + initial state ----
     $('foot').innerHTML = 'Updated ' + rel(rates.generated_at)
-      + (usdcad ? ' · USD/CAD ' + usdcad.toFixed(4) : '')
-      + '<br>CDRs are CAD-hedged — spot FX doesn’t apply.';
+      + (usdcad ? ' · USD/CAD ' + usdcad.toFixed(4) : '');
 
     const q = new URL(location).searchParams.get('s');
     const init = (q && resolve(q)) || index.get('NVDA.TO') || pairs[0];
