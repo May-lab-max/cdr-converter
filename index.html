@@ -201,12 +201,19 @@ document.getElementById('theme').addEventListener('click', function () {
         $('cad').value = fmt(p.cad_price, 2);
       }
       let k = '1 ' + p.cad_symbol + ' = <b>' + p.k.toFixed(5) + '</b> ' + p.us_symbol;
+      if (p.k_band_bp != null) {
+        k += ' <span title="Half the p10–p90 spread of the minute-by-minute ratio">±'
+          + (p.k_band_bp / 100).toFixed(2) + '%</span>';
+      }
       if (p.type === 'cdr' && usdcad) {
         k += ' · ≈ <b>' + (p.k / usdcad).toFixed(3) + '</b> shares';
       }
       $('kline').innerHTML = k;
       const mismatch = p.price_date.includes('/');
-      $('meta').innerHTML = 'Closes · <b>' + fmtDate(p.price_date) + '</b>'
+      const how = p.k_method === 'intraday'
+        ? 'Median of ' + p.k_minutes + ' matched minutes'
+        : 'Closes';
+      $('meta').innerHTML = how + ' · <b>' + fmtDate(p.price_date) + '</b>'
         + (mismatch ? ' <span class="warn">— different days, approximate</span>' : '');
       const u = new URL(location); u.searchParams.set('s', p.cad_symbol); history.replaceState(null, '', u);
     }

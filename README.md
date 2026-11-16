@@ -10,16 +10,30 @@ TSX) plus major TSX/NYSE cross-listings.
 
 CDRs are **CAD-hedged**: their price embeds CIBC's notional currency hedge and
 a fractional share ratio that resets daily. Dividing a CDR price by the spot
-FX rate gives a number that means nothing. Instead, this tool derives the day
-conversion factor from **simultaneous closes** on both tapes:
+FX rate gives a number that means nothing. Instead, this tool measures the
+conversion factor directly from both tapes:
 
 ```
-k = CAD close / USD close
+k = median over matched minutes of ( CAD price / USD price )
 ```
+
+The updater pulls 1-minute bars for both legs, keeps only minutes where both
+traded (same timestamp), skips the opening auction (before 9:35 ET), and takes
+the median over the latest session with at least 20 matched minutes. A single
+close-to-close ratio is one noisy sample — in a fast market the two closing
+prints can be seconds apart, and the CDR close can sit a few ticks off fair
+value. The page shows `±x%` = half the p10–p90 spread of the minute ratios
+(typically ±0.05–0.10%). Thinly traded CDRs fall back to the close ratio.
 
 `k` bundles the share ratio and the hedged FX into one number, and because the
-hedge resets daily it is stable intraday to within basis points — so a single
-morning measurement converts live prices all day, entirely client-side.
+hedge resets daily it does not move with intraday FX — so one measurement
+converts live prices all day, entirely client-side. The updater never replaces
+a pair with a `k` from an older session than the one already published.
+
+**Comparing against live quotes:** use the same instant on both legs. Many
+free quote pages delay TSX quotes by 15 minutes; in a volatile session a US
+stock often moves 1% or more in 15 minutes, which looks like a conversion
+error but is quote lag.
 
 For unhedged cross-listings (SHOP, TD, CNR/CNI, …) the same `k` works and
 lands within arbitrage distance of spot FX, as it should.
