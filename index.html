@@ -4,20 +4,30 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CDR ⇄ USD Converter</title>
-<script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}</script>
+<script>try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.classList.add(t)}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Geist+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
 <style>
-  /* maylab design system: light by default; .dark (set by the toggle) uses Vercel's Geist dark palette. */
+  /* maylab tokens. Dark follows the OS until the toggle picks a theme (.dark / .light on <html>). */
   :root {
     --bg: #ffffff; --card: #ffffff; --ink: #111827; --muted: #6b7280; --field: #f9fafb;
-    --line: #e5e7eb; --accent: #6a4ce1; --amber: #a16207; --ok: #15803d; --chip: #f3f4f6; --hover: #f9fafb;
+    --line: #e5e7eb; --accent: #6a4ce1; --amber: #a16207; --ok: #15803d; --chip: #f3f4f6;
     --mono: "Geist Mono", ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not(.light) {
+      --bg: #000000; --card: #0a0a0a; --ink: #ededed; --muted: #a1a1a1; --field: #000000;
+      --line: rgba(255,255,255,0.145); --accent: #a898f5; --amber: #f5a524; --ok: #45a557; --chip: #1a1a1a;
+      color-scheme: dark;
+    }
   }
   :root.dark {
     --bg: #000000; --card: #0a0a0a; --ink: #ededed; --muted: #a1a1a1; --field: #000000;
-    --line: rgba(255,255,255,0.145); --accent: #ededed; --amber: #f5a524; --ok: #45a557; --chip: #1a1a1a; --hover: #1a1a1a;
+    --line: rgba(255,255,255,0.145); --accent: #a898f5; --amber: #f5a524; --ok: #45a557; --chip: #1a1a1a;
+    color-scheme: dark;
   }
+
   * { box-sizing: border-box; margin: 0; }
   body {
     background: var(--bg); color: var(--ink); min-height: 100vh;
@@ -25,299 +35,409 @@
     -webkit-font-smoothing: antialiased;
     display: flex; flex-direction: column; align-items: center; padding: 56px 24px;
   }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  /* ---- top bar ---- */
   .bar { width: 100%; max-width: 720px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 56px; }
   .brand { font-size: 18px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
   .brand span { color: var(--accent); }
+  .bar-right { display: flex; align-items: center; gap: 12px; }
   .theme { display: inline-flex; padding: 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; }
-  .theme:hover { background: var(--hover); }
+  .theme:hover { background: var(--chip); }
   .theme svg { width: 16px; height: 16px; }
-  .theme .sun, :root.dark .theme .moon { display: none; }
+  .theme .sun { display: none; }
   :root.dark .theme .sun { display: block; }
-  header { text-align: center; margin-bottom: 28px; }
-  header h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.025em; }
-  header p { color: var(--muted); font-size: 13px; margin-top: 4px; }
+  :root.dark .theme .moon { display: none; }
+  @media (prefers-color-scheme: dark) {
+    :root:not(.light) .theme .sun { display: block; }
+    :root:not(.light) .theme .moon { display: none; }
+  }
+
+  h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.025em; text-align: center; margin-bottom: 28px; }
+
+  /* ---- card ---- */
   .card {
     background: var(--card); border: 1px solid var(--line); border-radius: 16px;
-    width: 100%; max-width: 520px; padding: 24px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    width: 100%; max-width: 520px; padding: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
   }
+
+  /* search (combobox) */
   .search-wrap { position: relative; }
   #symbol {
     width: 100%; padding: 12px 14px; font-size: 16px; border-radius: 10px;
-    border: 1px solid var(--line); background: var(--field); color: var(--ink); outline: none; font-family: inherit;
+    border: 1px solid var(--line); background: var(--field); color: var(--ink); font-family: inherit;
   }
-  #symbol:focus { border-color: var(--accent); }
+  #symbol:focus { outline: none; border-color: var(--accent); }
   #suggest {
     position: absolute; top: calc(100% + 4px); left: 0; right: 0; z-index: 10;
     background: var(--card); border: 1px solid var(--line); border-radius: 10px;
-    max-height: 260px; overflow-y: auto; display: none;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    max-height: 260px; overflow-y: auto; display: none; padding: 4px 0;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12); list-style: none;
   }
-  #suggest div { padding: 9px 14px; cursor: pointer; display: flex; justify-content: space-between; gap: 12px; }
-  #suggest div:hover, #suggest div.active { background: var(--chip); }
-  #suggest .nm { color: var(--muted); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #suggest li { padding: 9px 14px; cursor: pointer; display: flex; justify-content: space-between; gap: 12px; }
+  #suggest li:hover, #suggest li[aria-selected="true"] { background: var(--chip); }
   #suggest .sym { font-family: var(--mono); font-size: 13px; }
+  #suggest .nm { color: var(--muted); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  /* quick picks: the only pills on the page, because they are the only things you press */
   .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 4px; }
   .chips button {
     border: 1px solid var(--line); background: var(--chip); color: var(--ink);
-    border-radius: 999px; padding: 3px 11px; font-size: 12px; cursor: pointer;
-    font-family: var(--mono);
+    border-radius: 999px; padding: 3px 11px; font-size: 12px; cursor: pointer; font-family: var(--mono);
   }
   .chips button:hover { border-color: var(--accent); color: var(--accent); }
-  .rows { margin-top: 18px; display: none; }
-  .rows.on { display: block; }
-  .pairhead { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; }
-  .pairhead .title { font-weight: 600; }
-  .badge {
-    font-size: 11px; padding: 2px 8px; border-radius: 999px;
-    border: 1px solid var(--line); color: var(--muted); white-space: nowrap;
+  .chips button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: transparent; }
+
+  /* result */
+  .result { margin-top: 20px; }
+  .result[hidden] { display: none; }
+  .result.stale { opacity: 0.35; pointer-events: none; }
+  .pairhead { display: flex; align-items: baseline; gap: 8px; margin-bottom: 10px; }
+  .pairhead .name { font-weight: 600; }
+  .pairhead .kind { font-size: 13px; color: var(--muted); }
+
+  /* the converter: one joined control, arrow shows which way it converts */
+  .pair { border: 1px solid var(--line); border-radius: 12px; background: var(--field); }
+  .pair:focus-within { border-color: var(--accent); }
+  .field { display: flex; align-items: center; gap: 12px; padding: 12px 16px; }
+  .field label { display: flex; flex-direction: column; min-width: 76px; flex-shrink: 0; cursor: text; }
+  .field .tk { font-family: var(--mono); font-size: 13px; font-weight: 600; }
+  .field .cur { font-size: 12px; color: var(--muted); }
+  .num { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: flex-end; }
+  .num input {
+    width: 100%; border: none; background: none; color: var(--ink); outline: none;
+    font-family: var(--mono); font-size: 24px; text-align: right; padding: 0;
+    font-variant-numeric: tabular-nums;
   }
-  .badge.hedged { color: var(--accent); border-color: var(--accent); }
-  .amount { display: flex; align-items: center; gap: 10px; border: 1px solid var(--line);
-    border-radius: 10px; padding: 10px 14px; margin-bottom: 10px; background: var(--field); }
-  .amount:focus-within { border-color: var(--accent); }
-  .amount label { font-family: var(--mono); font-size: 13px; font-weight: 600; min-width: 62px; flex-shrink: 0; }
-  .amount .cur { color: var(--muted); font-size: 13px; }
-  .amount input {
-    flex: 1; min-width: 0; border: none; background: none; color: var(--ink); outline: none;
-    font-family: var(--mono); font-size: 22px; text-align: right;
+  .tol { font-family: var(--mono); font-size: 12px; color: var(--muted); min-height: 18px; }
+  .divider { position: relative; height: 1px; background: var(--line); margin: 0 16px; }
+  .dir {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--card); border: 1px solid var(--line); color: var(--muted);
   }
-  .kline { text-align: center; color: var(--muted); font-size: 13px; margin: 10px 0 2px; }
-  .kline b { color: var(--ink); font-family: var(--mono); font-weight: 600; }
-  .meta { text-align: center; color: var(--muted); font-size: 12px; margin-top: 10px; }
-  .meta .warn { color: var(--amber); }
-  .acc { display: flex; justify-content: center; margin-top: 12px; }
-  .acc span {
-    display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px;
-    border: 1px solid var(--line); border-radius: 999px; font-size: 12px; font-weight: 500; cursor: help;
+  .dir svg { width: 14px; height: 14px; transition: transform 0.18s ease; }
+  .dir.up svg { transform: rotate(180deg); }
+  @media (prefers-reduced-motion: reduce) { .dir svg { transition: none; } }
+
+  /* reliability: a status line, not a badge */
+  .status-wrap { text-align: center; margin-top: 16px; }
+  .status {
+    display: inline-flex; align-items: center; gap: 7px; padding: 4px 8px; border-radius: 6px;
+    border: none; background: none; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;
   }
-  .acc span::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
-  .acc .ok { color: var(--ok); }
-  .acc .approx { color: var(--amber); }
-  footer { color: var(--muted); font-size: 12px; margin-top: 26px; max-width: 520px; text-align: center; }
+  .status:hover { background: var(--chip); }
+  .status .dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+  .status .info { width: 14px; height: 14px; color: var(--muted); }
+  .status.ok { color: var(--ok); }
+  .status.approx { color: var(--amber); }
+  #why { color: var(--muted); font-size: 13px; max-width: 44ch; margin: 6px auto 0; }
+
+  .meta { text-align: center; color: var(--muted); font-size: 12px; margin-top: 14px; }
+  .meta .rate { font-family: var(--mono); color: var(--ink); }
+
+  .empty { margin-top: 20px; text-align: center; color: var(--muted); font-size: 14px; }
+  .empty b { color: var(--ink); font-family: var(--mono); font-weight: 600; }
+
   @media (max-width: 480px) {
     body { padding: 28px 16px; }
     .bar { margin-bottom: 32px; }
-    header { margin-bottom: 20px; }
+    h1 { font-size: 24px; margin-bottom: 20px; }
     .card { padding: 18px 14px; }
-    .amount input { font-size: 20px; }
+    .field { padding: 12px 14px; }
+    .num input { font-size: 22px; }
   }
 </style>
 </head>
 <body>
 <nav class="bar">
   <a class="brand" href="https://maylab.app">may<span>lab</span></a>
-  <button class="theme" id="theme" type="button" aria-label="Toggle dark mode">
-    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-  </button>
+  <div class="bar-right">
+    <button class="theme" id="theme" type="button" aria-label="Switch light or dark theme">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    </button>
+  </div>
 </nav>
-<header>
-  <h1>CDR ⇄ USD converter</h1>
-</header>
 
-<div class="card">
+<h1>CDR ⇄ USD converter</h1>
+
+<main class="card">
   <div class="search-wrap">
-    <input id="symbol" placeholder="NVDA, SHOP.TO, GOOGL…"
-           autocomplete="off" spellcheck="false" autofocus>
-    <div id="suggest"></div>
+    <label class="sr-only" for="symbol">Ticker</label>
+    <input id="symbol" placeholder="NVDA, SHOP.TO, GOOGL…" autocomplete="off" spellcheck="false" autofocus
+           role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="suggest">
+    <ul id="suggest" role="listbox" aria-label="Matching tickers"></ul>
   </div>
-  <div class="chips" id="chips"></div>
+  <div class="chips" id="chips" aria-label="Popular tickers"></div>
 
-  <div class="rows" id="rows">
+  <section class="result" id="result" hidden aria-live="polite">
     <div class="pairhead">
-      <div class="title" id="pairname"></div>
-      <div class="badge" id="pairbadge"></div>
+      <span class="name" id="pairname"></span>
+      <span class="kind" id="pairkind"></span>
     </div>
-    <div class="amount">
-      <label id="uslabel" for="usd"></label>
-      <span class="cur">US$</span>
-      <input id="usd" inputmode="decimal" aria-label="Price in US dollars">
-    </div>
-    <div class="amount">
-      <label id="cadlabel" for="cad"></label>
-      <span class="cur">CA$</span>
-      <input id="cad" inputmode="decimal" aria-label="Price in Canadian dollars">
-    </div>
-    <div class="kline" id="kline"></div>
-    <div class="acc" id="acc"></div>
-    <div class="meta" id="meta"></div>
-  </div>
-</div>
 
-<footer id="foot"></footer>
+    <div class="pair">
+      <div class="field">
+        <label for="usd"><span class="tk" id="uslabel"></span><span class="cur">US$</span></label>
+        <div class="num">
+          <input id="usd" inputmode="decimal" aria-describedby="usdtol">
+          <span class="tol" id="usdtol"></span>
+        </div>
+      </div>
+      <div class="divider" aria-hidden="true">
+        <span class="dir" id="dir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span>
+      </div>
+      <div class="field">
+        <label for="cad"><span class="tk" id="cadlabel"></span><span class="cur">CA$</span></label>
+        <div class="num">
+          <input id="cad" inputmode="decimal" aria-describedby="cadtol">
+          <span class="tol" id="cadtol"></span>
+        </div>
+      </div>
+    </div>
 
-<script>
-document.getElementById('theme').addEventListener('click', function () {
-  var dark = document.documentElement.classList.toggle('dark');
-  try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
-});
-</script>
-<script src="rates.js"></script>
+    <div class="status-wrap">
+      <button class="status" id="status" type="button" aria-expanded="false" aria-controls="why">
+        <span class="dot" aria-hidden="true"></span>
+        <span id="statustext"></span>
+        <svg class="info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+      </button>
+      <p id="why" hidden></p>
+    </div>
+
+    <p class="meta"><span class="rate" id="rate"></span><br><span id="fresh"></span></p>
+  </section>
+
+  <p class="empty" id="empty" hidden></p>
+</main>
+
 <script>
 (function () {
   'use strict';
 
-  // Quick chips, ranked by weight in QQQ (Invesco holdings, 2026-11-05; Alphabet = GOOGL + GOOG).
-  // BRK is not in QQQ, so it comes last.
   const POPULAR = ['AAPL.TO','NVDA.TO','MSFT.TO','GOOG.TO','AMZN.TO','MU.TO','TSLA.TO','META.TO','SPCX.TO','AVGO.TO','AMAT.TO','SHOP.TO','BRK.TO'];
+  const TOLERANCE = 0.0025; // ±0.25%, measured — see README "Reliability label"
   const $ = id => document.getElementById(id);
+  const root = document.documentElement;
+
+  // ---- theme: OS preference until the user picks one ----
+  $('theme').addEventListener('click', () => {
+    const isDark = root.classList.contains('dark') ||
+      (!root.classList.contains('light') && matchMedia('(prefers-color-scheme: dark)').matches);
+    const next = isDark ? 'light' : 'dark';
+    root.classList.remove('dark', 'light');
+    root.classList.add(next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+
+  // ---- load rates: always revalidate, so a fresh refresh shows at once ----
+  async function loadRates() {
+    try {
+      const r = await fetch('rates.json', { cache: 'no-cache' });
+      if (r.ok) return await r.json();
+    } catch (e) { /* file:// or offline: fall through */ }
+    return new Promise(resolve => {
+      const s = document.createElement('script');
+      s.src = 'rates.js';
+      s.onload = () => resolve(window.__RATES__ || null);
+      s.onerror = () => resolve(null);
+      document.head.appendChild(s);
+    });
+  }
+
+  const fmt = (v, dp) => v.toLocaleString('en-US', { minimumFractionDigits: dp, maximumFractionDigits: dp });
+  const parse = el => { const v = parseFloat(el.value.replace(/[,\s$]/g, '')); return isFinite(v) ? v : null; };
+  const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const fmtDate = s => s.split(' / ').map(d => { const [, m, day] = d.split('-'); return MONTHS[+m - 1] + ' ' + +day; }).join(' and ');
+  const rel = iso => {
+    const t = Date.parse(iso.replace(' UTC', 'Z'));
+    if (isNaN(t)) return '';
+    const m = Math.round((Date.now() - t) / 60000);
+    if (m < 2) return 'just now';
+    if (m < 60) return m + ' min ago';
+    if (m < 48 * 60) return Math.round(m / 60) + 'h ago';
+    return Math.round(m / 1440) + ' days ago';
+  };
+
+  // ---- reliability: one label, one plain explanation ----
+  function reliability(p, usdcad) {
+    const lag = ' Checking against a quote site? Many show TSX prices 15 minutes late.';
+    const approx = (label, why) => ({ ok: false, label: 'Approximate · ' + label, why: why + lag });
+    if (p.price_date.includes('/'))
+      return approx('prices from different days', 'The US and Canadian prices behind this rate come from different trading days.');
+    if (p.type !== 'cdr')
+      return approx('moves with USD/CAD', 'This is a cross-listed share, not a currency-hedged CDR, so the rate drifts as the exchange rate moves during the day.');
+    if (p.k_method !== 'intraday')
+      return approx('thinly traded', 'This CDR trades too rarely for a minute-by-minute rate, so the rate comes from closing prices.');
+    if (p.k_band_bp > 25)
+      return approx('unusual spread', 'Prices moved unusually far apart on the last session, so this rate is less certain.');
+    const shares = usdcad ? ' Each ' + p.cad_symbol + ' represents about ' + (p.k / usdcad).toFixed(3) + ' ' + p.us_symbol + ' shares.' : '';
+    return { ok: true, label: 'Accurate to ±0.25%',
+      why: 'In a November 2026 test on 48 CDRs, 96% of conversions landed within ±0.25% of the real CDR price.' + shares + lag };
+  }
 
   function boot(rates) {
+    if (!rates || !rates.pairs) {
+      $('empty').textContent = 'Today’s rates didn’t load. Reload the page to try again.';
+      $('empty').hidden = false;
+      return;
+    }
     const pairs = Object.values(rates.pairs);
     const usdcad = rates.usdcad_spot;
 
-    // ---- resolver: any spelling of either leg -> pair ----
+    // resolver: any spelling of either leg -> pair
     const index = new Map();
     for (const p of pairs) {
-      const keys = [p.cad_symbol, p.us_symbol, ...p.aliases,
-                    p.cad_symbol.replace(/\.(NE|TO)$/, '')];
-      // bare US symbol should prefer the CDR over a cross-listing conflict; none today
-      for (const k of keys) if (!index.has(k.toUpperCase())) index.set(k.toUpperCase(), p);
+      for (const k of [p.cad_symbol, p.us_symbol, ...p.aliases, p.cad_symbol.replace(/\.(NE|TO)$/, '')])
+        if (!index.has(k.toUpperCase())) index.set(k.toUpperCase(), p);
     }
     const resolve = q => index.get(q.trim().toUpperCase().replace(/\s+/g, '')) || null;
 
-    let current = null;
+    let current = null, rel_ = null, edited = 'usd';
 
-    const fmt = (v, dp) => v.toLocaleString('en-US', { minimumFractionDigits: dp, maximumFractionDigits: dp });
-    const parse = el => { const v = parseFloat(el.value.replace(/[,\s$]/g, '')); return isFinite(v) ? v : null; };
-    const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    const fmtDate = s => s.split(' / ').map(d => {
-      const [, m, day] = d.split('-');
-      return MONTHS[+m - 1] + ' ' + +day;
-    }).join(' / ');
-    const rel = iso => {
-      const t = Date.parse(iso.replace(' UTC', 'Z'));
-      if (isNaN(t)) return iso.split('T')[0];
-      const m = Math.round((Date.now() - t) / 60000);
-      if (m < 2) return 'just now';
-      if (m < 60) return m + 'm ago';
-      if (m < 48 * 60) return Math.round(m / 60) + 'h ago';
-      return Math.round(m / 1440) + 'd ago';
-    };
-
-    // ---- reliability label ----
-    // ±0.25% is measured: Nov 2026, 48 hedged CDRs, a day-old k applied to the
-    // next day's 1-minute prices — 96% of minutes within ±0.25%. It only holds
-    // for hedged CDRs priced from matched minutes with a tight session band.
-    const LAG = ' Compare against quotes from the same moment: free sites often delay TSX quotes 15 min.';
-    function accuracy(p) {
-      const approx = why => ({ cls: 'approx', label: 'Approximate · ' + why, tip: 'Not covered by the ±0.25% test.' + LAG });
-      if (p.price_date.includes('/')) return approx('prices from different days');
-      if (p.type !== 'cdr') return approx('moves with USD/CAD');
-      if (p.k_method !== 'intraday') return approx('thinly traded');
-      if (p.k_band_bp > 25) return approx('unusually wide spread');
-      return { cls: 'ok', label: 'Accurate to ±0.25%',
-        tip: 'Tested Nov 2026 on 48 CDRs: 96% of conversions landed within ±0.25% of the actual CDR price.' + LAG };
+    function convert(from) {
+      if (!current) return;
+      edited = from;
+      const to = from === 'usd' ? 'cad' : 'usd';
+      const v = parse($(from));
+      const out = v === null ? null : (from === 'usd' ? v * current.k : v / current.k);
+      $(to).value = out === null ? '' : fmt(out, 2);
+      $('dir').classList.toggle('up', from === 'cad');
+      $(from + 'tol').textContent = '';
+      if (out === null || !rel_.ok) { $(to + 'tol').textContent = ''; return; }
+      const tol = out * TOLERANCE;
+      $(to + 'tol').textContent = '± ' + (to === 'usd' ? 'US$' : 'CA$') + (tol < 0.01 ? '0.01' : fmt(tol, 2));
     }
 
-    function show(p, { keepAmounts = false } = {}) {
+    function show(p) {
       current = p;
-      $('rows').classList.add('on');
+      rel_ = reliability(p, usdcad);
+      $('result').hidden = false;
+      $('result').classList.remove('stale');
+      $('empty').hidden = true;
       $('pairname').textContent = p.name;
-      const b = $('pairbadge');
-      if (p.type === 'cdr') { b.textContent = 'Hedged CDR'; b.className = 'badge hedged'; }
-      else { b.textContent = 'Cross-listed'; b.className = 'badge'; }
+      $('pairkind').textContent = p.type === 'cdr' ? 'currency-hedged CDR' : 'cross-listed share';
       $('uslabel').textContent = p.us_symbol;
       $('cadlabel').textContent = p.cad_symbol;
-      if (!keepAmounts) {
-        $('usd').value = fmt(p.us_price, 2);
-        $('cad').value = fmt(p.cad_price, 2);
-      }
-      let k = '1 ' + p.cad_symbol + ' = <b>' + p.k.toFixed(5) + '</b> ' + p.us_symbol;
-      if (p.type === 'cdr' && usdcad) {
-        k += ' · ≈ <b>' + (p.k / usdcad).toFixed(3) + '</b> shares';
-      }
-      $('kline').innerHTML = k;
-      const a = accuracy(p);
-      $('acc').innerHTML = '<span class="' + a.cls + '" title="' + a.tip + '">' + a.label + '</span>';
-      $('meta').innerHTML = 'Rate from <b>' + fmtDate(p.price_date) + '</b>';
+      $('usd').value = fmt(p.us_price, 2);
+      convert('usd');
+
+      const st = $('status');
+      st.className = 'status ' + (rel_.ok ? 'ok' : 'approx');
+      $('statustext').textContent = rel_.label;
+      $('why').textContent = rel_.why;
+
+      $('rate').textContent = '1 ' + p.cad_symbol + ' = ' + p.k.toFixed(5) + ' ' + p.us_symbol;
+      const ago = rel(rates.generated_at);
+      $('fresh').textContent = 'Rate from ' + fmtDate(p.price_date) + (ago ? ', updated ' + ago : '');
+
+      for (const b of $('chips').children) b.setAttribute('aria-pressed', String(b.dataset.s === p.cad_symbol));
       const u = new URL(location); u.searchParams.set('s', p.cad_symbol); history.replaceState(null, '', u);
     }
 
-    // ---- bidirectional conversion ----
-    $('usd').addEventListener('input', () => {
-      if (!current) return;
-      const v = parse($('usd'));
-      $('cad').value = v === null ? '' : fmt(v * current.k, 2);
-    });
-    $('cad').addEventListener('input', () => {
-      if (!current) return;
-      const v = parse($('cad'));
-      $('usd').value = v === null ? '' : fmt(v / current.k, 2);
-    });
-    // re-pretty the edited box on blur
+    function noMatch(q) {
+      $('result').hidden = true;
+      $('empty').innerHTML = '';
+      $('empty').append('No CDR or cross-listing matches ');
+      const b = document.createElement('b'); b.textContent = q; $('empty').append(b);
+      $('empty').append('. Try a US ticker like NVDA.');
+      $('empty').hidden = false;
+    }
+
+    $('usd').addEventListener('input', () => convert('usd'));
+    $('cad').addEventListener('input', () => convert('cad'));
     for (const id of ['usd', 'cad']) $(id).addEventListener('blur', () => {
       const v = parse($(id)); if (v !== null) $(id).value = fmt(v, 2);
     });
 
-    // ---- search + suggestions ----
-    const sug = $('suggest');
-    let activeIdx = -1, shown = [];
+    $('status').addEventListener('click', () => {
+      const open = $('status').getAttribute('aria-expanded') !== 'true';
+      $('status').setAttribute('aria-expanded', String(open));
+      $('why').hidden = !open;
+    });
+
+    // ---- search (combobox) ----
+    const sym = $('symbol'), sug = $('suggest');
+    let active = -1, shown = [];
+    function setActive(i) {
+      active = i;
+      [...sug.children].forEach((el, j) => el.setAttribute('aria-selected', String(j === i)));
+      if (i >= 0) { sym.setAttribute('aria-activedescendant', 'opt-' + i); sug.children[i].scrollIntoView({ block: 'nearest' }); }
+      else sym.removeAttribute('aria-activedescendant');
+    }
+    function closeSuggest() { sug.style.display = 'none'; sym.setAttribute('aria-expanded', 'false'); setActive(-1); }
     function renderSuggest(q) {
-      const needle = q.trim().toUpperCase();
-      shown = !needle ? [] : pairs.filter(p =>
-        p.cad_symbol.startsWith(needle) || p.us_symbol.startsWith(needle) ||
-        p.aliases.some(a => a.toUpperCase().startsWith(needle)) ||
-        p.name.toUpperCase().includes(needle)).slice(0, 8);
-      activeIdx = -1;
-      sug.innerHTML = shown.map(p =>
-        '<div data-s="' + p.cad_symbol + '"><span class="sym">' + p.cad_symbol + ' ⇄ ' + p.us_symbol
-        + '</span><span class="nm">' + p.name + '</span></div>').join('');
-      sug.style.display = shown.length ? 'block' : 'none';
+      const n = q.trim().toUpperCase();
+      shown = !n ? [] : pairs.filter(p =>
+        p.cad_symbol.startsWith(n) || p.us_symbol.startsWith(n) ||
+        p.aliases.some(a => a.toUpperCase().startsWith(n)) || p.name.toUpperCase().includes(n)).slice(0, 8);
+      sug.innerHTML = '';
+      shown.forEach((p, i) => {
+        const li = document.createElement('li');
+        li.id = 'opt-' + i; li.setAttribute('role', 'option'); li.dataset.s = p.cad_symbol;
+        li.innerHTML = '<span class="sym"></span><span class="nm"></span>';
+        li.firstChild.textContent = p.cad_symbol + ' ⇄ ' + p.us_symbol;
+        li.lastChild.textContent = p.name;
+        sug.appendChild(li);
+      });
+      if (shown.length) { sug.style.display = 'block'; sym.setAttribute('aria-expanded', 'true'); setActive(-1); }
+      else closeSuggest();
     }
     function pick(p) {
-      $('symbol').value = p.cad_symbol;
-      sug.style.display = 'none';
+      sym.value = p.cad_symbol;
+      closeSuggest();
       show(p);
       $('usd').focus(); $('usd').select();
     }
-    $('symbol').addEventListener('input', e => {
-      renderSuggest(e.target.value);
-      const hit = resolve(e.target.value);
+
+    sym.addEventListener('input', () => {
+      const q = sym.value.trim();
+      renderSuggest(q);
+      const hit = resolve(q);
       if (hit) show(hit);
-    });
-    $('symbol').addEventListener('keydown', e => {
-      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-        e.preventDefault();
-        if (!shown.length) return;
-        activeIdx = (activeIdx + (e.key === 'ArrowDown' ? 1 : -1) + shown.length) % shown.length;
-        [...sug.children].forEach((el, i) => el.classList.toggle('active', i === activeIdx));
-      } else if (e.key === 'Enter') {
-        const p = activeIdx >= 0 ? shown[activeIdx] : (resolve(e.target.value) || shown[0]);
-        if (p) pick(p);
-      } else if (e.key === 'Escape') {
-        sug.style.display = 'none';
+      else if (!q) { if (current) show(current); }
+      else if (shown.length) {
+        // still typing: keep the last result, dimmed, until a ticker resolves
+        $('empty').hidden = true;
+        if (current) { $('result').hidden = false; $('result').classList.add('stale'); }
       }
+      else noMatch(q);
+    });
+    sym.addEventListener('keydown', e => {
+      if ((e.key === 'ArrowDown' || e.key === 'ArrowUp') && shown.length) {
+        e.preventDefault();
+        setActive((active + (e.key === 'ArrowDown' ? 1 : -1) + shown.length) % shown.length);
+      } else if (e.key === 'Enter') {
+        const p = active >= 0 ? shown[active] : (resolve(sym.value) || shown[0]);
+        if (p) pick(p);
+      } else if (e.key === 'Escape') closeSuggest();
     });
     sug.addEventListener('mousedown', e => {
-      const row = e.target.closest('[data-s]');
-      if (row) { e.preventDefault(); pick(index.get(row.dataset.s.toUpperCase())); }
+      const li = e.target.closest('[data-s]');
+      if (li) { e.preventDefault(); pick(index.get(li.dataset.s.toUpperCase())); }
     });
-    document.addEventListener('click', e => {
-      if (!e.target.closest('.search-wrap')) sug.style.display = 'none';
-    });
+    document.addEventListener('click', e => { if (!e.target.closest('.search-wrap')) closeSuggest(); });
 
-    // ---- quick chips ----
-    $('chips').innerHTML = POPULAR.filter(s => index.has(s))
-      .map(s => '<button data-s="' + s + '">' + s.replace(/\.(NE|TO)$/, '') + '</button>').join('');
+    // ---- quick picks ----
+    for (const s of POPULAR.filter(s => index.has(s))) {
+      const b = document.createElement('button');
+      b.type = 'button'; b.dataset.s = s; b.textContent = s.replace(/\.(NE|TO)$/, '');
+      b.setAttribute('aria-pressed', 'false');
+      $('chips').appendChild(b);
+    }
     $('chips').addEventListener('click', e => {
       const b = e.target.closest('[data-s]');
       if (b) pick(index.get(b.dataset.s.toUpperCase()));
     });
 
-    // ---- footer + initial state ----
-    $('foot').innerHTML = 'Updated ' + rel(rates.generated_at)
-      + (usdcad ? ' · USD/CAD ' + usdcad.toFixed(4) : '');
-
     const q = new URL(location).searchParams.get('s');
     const init = (q && resolve(q)) || index.get('NVDA.TO') || pairs[0];
-    if (init) { $('symbol').value = init.cad_symbol; show(init); }
+    if (init) { sym.value = init.cad_symbol; show(init); }
   }
 
-  if (window.__RATES__) boot(window.__RATES__);
-  else fetch('rates.json').then(r => r.json()).then(boot)
-    .catch(() => { $('foot').textContent = 'rates.js / rates.json not found — run: python3 update_rates.py'; });
+  loadRates().then(boot);
 })();
 </script>
 </body>
