@@ -1,10 +1,11 @@
 name: Refresh rates
 
 on:
+  # Primary trigger: Vercel Cron -> api/dispatch-refresh.js -> workflow_dispatch,
+  # because GitHub's own schedule starts this workflow 4-11 hours late.
+  # The schedule below stays as a backup in case the Vercel trigger fails.
   schedule:
-    # Cron is UTC. Toronto is UTC-4 (EDT) or UTC-5 (EST); running both slots
-    # guarantees one post-open morning refresh and one post-close refresh
-    # year-round (the extra run is harmless — no data change, no commit).
+    # Cron is UTC. Toronto is UTC-4 (EDT) or UTC-5 (EST).
     - cron: "45 13 * * 1-5"   # 9:45 EDT / 8:45 EST
     - cron: "45 14 * * 1-5"   # 10:45 EDT / 9:45 EST
     - cron: "15 20 * * 1-5"   # 16:15 EDT / 15:15 EST
@@ -13,6 +14,11 @@ on:
 
 permissions:
   contents: write
+
+# Never run two refreshes at once (their pushes would collide).
+concurrency:
+  group: refresh-rates
+  cancel-in-progress: false
 
 jobs:
   refresh:
@@ -36,5 +42,9 @@ jobs:
           git config user.email "actions@github.com"
           git add rates.json rates.js
           git diff --cached --quiet && echo "No change" && exit 0
+          # A late duplicate run often changes only generated_at: skip it.
+          if ! git diff --cached -U0 -- rates.json | grep -E '^[+-] ' | grep -qv '"generated_at"'; then
+            echo "Only the timestamp changed"; exit 0
+          fi
           git commit -m "Refresh rates $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push
