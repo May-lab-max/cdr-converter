@@ -22,8 +22,15 @@ traded (same timestamp), skips the opening auction (before 9:35 ET), and takes
 the median over the latest session with at least 20 matched minutes. A single
 close-to-close ratio is one noisy sample — in a fast market the two closing
 prints can be seconds apart, and the CDR close can sit a few ticks off fair
-value. The page shows `±x%` = half the p10–p90 spread of the minute ratios
-(typically ±0.05–0.10%). Thinly traded CDRs fall back to the close ratio.
+value. Thinly traded CDRs fall back to the close ratio.
+
+**Reliability label.** The page labels each pair "Accurate to ±0.25%" or
+"Approximate · <reason>". The ±0.25% figure is measured: across 48 hedged CDRs
+(Nov 2026), a day-old `k` applied to the next day's 1-minute prices put 96% of
+minutes within ±0.25% (99.6% within ±0.5%). It is shown only for hedged CDRs
+priced from matched minutes whose session band (half the p10–p90 spread of the
+minute ratios, `k_band_bp`) is ≤ 25 bp. Cross-listings (k moves with USD/CAD),
+close-ratio fallbacks and mismatched dates get "Approximate".
 
 `k` bundles the share ratio and the hedged FX into one number, and because the
 hedge resets daily it does not move with intraday FX — so one measurement

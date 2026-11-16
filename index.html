@@ -11,12 +11,12 @@
   /* maylab design system: light by default; .dark (set by the toggle) uses Vercel's Geist dark palette. */
   :root {
     --bg: #ffffff; --card: #ffffff; --ink: #111827; --muted: #6b7280; --field: #f9fafb;
-    --line: #e5e7eb; --accent: #6a4ce1; --amber: #a16207; --chip: #f3f4f6; --hover: #f9fafb;
+    --line: #e5e7eb; --accent: #6a4ce1; --amber: #a16207; --ok: #15803d; --chip: #f3f4f6; --hover: #f9fafb;
     --mono: "Geist Mono", ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
   }
   :root.dark {
     --bg: #000000; --card: #0a0a0a; --ink: #ededed; --muted: #a1a1a1; --field: #000000;
-    --line: rgba(255,255,255,0.145); --accent: #ededed; --amber: #f5a524; --chip: #1a1a1a; --hover: #1a1a1a;
+    --line: rgba(255,255,255,0.145); --accent: #ededed; --amber: #f5a524; --ok: #45a557; --chip: #1a1a1a; --hover: #1a1a1a;
   }
   * { box-sizing: border-box; margin: 0; }
   body {
@@ -86,13 +86,14 @@
   .kline b { color: var(--ink); font-family: var(--mono); font-weight: 600; }
   .meta { text-align: center; color: var(--muted); font-size: 12px; margin-top: 10px; }
   .meta .warn { color: var(--amber); }
-  .method { width: 100%; max-width: 520px; margin-top: 28px; color: var(--muted); font-size: 13px; }
-  .method h2 { color: var(--ink); font-size: 13px; font-weight: 600; margin: 0 0 6px; }
-  .method h2 + ul { margin-bottom: 16px; }
-  .method ul { padding-left: 18px; }
-  .method li { margin: 3px 0; }
-  .method b { color: var(--ink); font-weight: 600; }
-  .method code { font-family: var(--mono); font-size: 12px; color: var(--ink); }
+  .acc { display: flex; justify-content: center; margin-top: 12px; }
+  .acc span {
+    display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px;
+    border: 1px solid var(--line); border-radius: 999px; font-size: 12px; font-weight: 500; cursor: help;
+  }
+  .acc span::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+  .acc .ok { color: var(--ok); }
+  .acc .approx { color: var(--amber); }
   footer { color: var(--muted); font-size: 12px; margin-top: 26px; max-width: 520px; text-align: center; }
   @media (max-width: 480px) {
     body { padding: 28px 16px; }
@@ -139,24 +140,10 @@
       <input id="cad" inputmode="decimal" aria-label="Price in Canadian dollars">
     </div>
     <div class="kline" id="kline"></div>
+    <div class="acc" id="acc"></div>
     <div class="meta" id="meta"></div>
   </div>
 </div>
-
-<section class="method">
-  <h2>Methodology</h2>
-  <ul>
-    <li><code>k</code> = median of CA$ ÷ US$ over every minute both tapes traded, latest session. Refreshed after the open and after the close.</li>
-    <li>CDRs are CAD-hedged, so FX moves don’t change <code>k</code> — one value holds all day.</li>
-    <li><code>±</code> next to <code>k</code> = spread of that session’s minute ratios.</li>
-  </ul>
-  <h2>Accuracy</h2>
-  <ul>
-    <li>Backtest, 48 CDRs, Nov 2026, using a day-old <code>k</code>: <b>96%</b> of minutes within <b>±0.25%</b>, <b>99.6%</b> within <b>±0.5%</b>.</li>
-    <li>Guards: needs 20+ matched minutes (else falls back to closes), never reverts to an older session, flags a band wider than ±0.25%.</li>
-    <li>Volatile market? Compare quotes from the same moment. Free sites often delay TSX quotes 15 min — that alone can exceed 1%.</li>
-  </ul>
-</section>
 
 <footer id="foot"></footer>
 
@@ -209,6 +196,21 @@ document.getElementById('theme').addEventListener('click', function () {
       return Math.round(m / 1440) + 'd ago';
     };
 
+    // ---- reliability label ----
+    // ±0.25% is measured: Nov 2026, 48 hedged CDRs, a day-old k applied to the
+    // next day's 1-minute prices — 96% of minutes within ±0.25%. It only holds
+    // for hedged CDRs priced from matched minutes with a tight session band.
+    const LAG = ' Compare against quotes from the same moment: free sites often delay TSX quotes 15 min.';
+    function accuracy(p) {
+      const approx = why => ({ cls: 'approx', label: 'Approximate · ' + why, tip: 'Not covered by the ±0.25% test.' + LAG });
+      if (p.price_date.includes('/')) return approx('prices from different days');
+      if (p.type !== 'cdr') return approx('moves with USD/CAD');
+      if (p.k_method !== 'intraday') return approx('thinly traded');
+      if (p.k_band_bp > 25) return approx('unusually wide spread');
+      return { cls: 'ok', label: 'Accurate to ±0.25%',
+        tip: 'Tested Nov 2026 on 48 CDRs: 96% of conversions landed within ±0.25% of the actual CDR price.' + LAG };
+    }
+
     function show(p, { keepAmounts = false } = {}) {
       current = p;
       $('rows').classList.add('on');
@@ -223,21 +225,13 @@ document.getElementById('theme').addEventListener('click', function () {
         $('cad').value = fmt(p.cad_price, 2);
       }
       let k = '1 ' + p.cad_symbol + ' = <b>' + p.k.toFixed(5) + '</b> ' + p.us_symbol;
-      if (p.k_band_bp != null) {
-        k += ' <span title="Half the p10–p90 spread of the minute-by-minute ratio">±'
-          + (p.k_band_bp / 100).toFixed(2) + '%</span>';
-      }
       if (p.type === 'cdr' && usdcad) {
         k += ' · ≈ <b>' + (p.k / usdcad).toFixed(3) + '</b> shares';
       }
       $('kline').innerHTML = k;
-      const mismatch = p.price_date.includes('/');
-      const how = p.k_method === 'intraday'
-        ? 'Median of ' + p.k_minutes + ' matched minutes'
-        : 'Closes';
-      $('meta').innerHTML = how + ' · <b>' + fmtDate(p.price_date) + '</b>'
-        + (mismatch ? ' <span class="warn">— different days, approximate</span>' : '')
-        + (p.k_band_bp > 25 ? ' <span class="warn">— wide spread, approximate</span>' : '');
+      const a = accuracy(p);
+      $('acc').innerHTML = '<span class="' + a.cls + '" title="' + a.tip + '">' + a.label + '</span>';
+      $('meta').innerHTML = 'Rate from <b>' + fmtDate(p.price_date) + '</b>';
       const u = new URL(location); u.searchParams.set('s', p.cad_symbol); history.replaceState(null, '', u);
     }
 
