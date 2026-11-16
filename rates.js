@@ -1,6 +1,6 @@
 window.__RATES__ = {
-  "generated_at": "2026-11-16T04:59 UTC",
-  "usdcad_spot": 1.42777,
+  "generated_at": "2026-11-16T06:02 UTC",
+  "usdcad_spot": 1.42748,
   "pairs": {
     "AAPL.TO": {
       "cad_symbol": "AAPL.TO",
@@ -127,7 +127,7 @@ window.__RATES__ = {
       "k": 0.03788,
       "k_method": "intraday",
       "k_minutes": 299,
-      "k_band_bp": 7.8,
+      "k_band_bp": 7.7,
       "price_date": "2026-11-13"
     },
     "AXP.TO": {
@@ -527,7 +527,7 @@ window.__RATES__ = {
       "k": 0.043676,
       "k_method": "intraday",
       "k_minutes": 373,
-      "k_band_bp": 9.5,
+      "k_band_bp": 9.6,
       "price_date": "2026-11-13"
     },
     "NFLX.TO": {
@@ -540,7 +540,7 @@ window.__RATES__ = {
       ],
       "cad_price": 23.18,
       "us_price": 62.15,
-      "k": 0.372998,
+      "k": 0.373009,
       "k_method": "intraday",
       "k_minutes": 140,
       "k_band_bp": 7.8,
@@ -708,7 +708,7 @@ window.__RATES__ = {
       "cad_symbol": "SPCX.TO",
       "us_symbol": "SPCX",
       "type": "cdr",
-      "name": "SpaceX (private CDR)",
+      "name": "SpaceX",
       "aliases": [
         "SPCX.NE"
       ],
@@ -867,7 +867,7 @@ window.__RATES__ = {
       "aliases": [],
       "cad_price": 209.74,
       "us_price": 147.09,
-      "k": 1.426139,
+      "k": 1.426131,
       "k_method": "intraday",
       "k_minutes": 359,
       "k_band_bp": 11.3,
@@ -937,7 +937,7 @@ window.__RATES__ = {
       "aliases": [],
       "cad_price": 164.99,
       "us_price": 115.8,
-      "k": 1.4259,
+      "k": 1.425908,
       "k_method": "intraday",
       "k_minutes": 264,
       "k_band_bp": 10.8,
@@ -951,7 +951,7 @@ window.__RATES__ = {
       "aliases": [],
       "cad_price": 67.96,
       "us_price": 47.67,
-      "k": 1.426247,
+      "k": 1.426235,
       "k_method": "intraday",
       "k_minutes": 385,
       "k_band_bp": 9.9,
@@ -1035,10 +1035,10 @@ window.__RATES__ = {
       "aliases": [],
       "cad_price": 103.95,
       "us_price": 72.93,
-      "k": 1.426089,
+      "k": 1.426099,
       "k_method": "intraday",
       "k_minutes": 250,
-      "k_band_bp": 12.1,
+      "k_band_bp": 12.4,
       "price_date": "2026-11-13"
     },
     "CP.TO": {
@@ -1063,7 +1063,7 @@ window.__RATES__ = {
       "aliases": [],
       "cad_price": 181.29,
       "us_price": 127.18,
-      "k": 1.426134,
+      "k": 1.426117,
       "k_method": "intraday",
       "k_minutes": 340,
       "k_band_bp": 10.5,
@@ -1079,7 +1079,7 @@ window.__RATES__ = {
       ],
       "cad_price": 85.87,
       "us_price": 60.19,
-      "k": 1.426229,
+      "k": 1.426227,
       "k_method": "intraday",
       "k_minutes": 365,
       "k_band_bp": 10.9,
