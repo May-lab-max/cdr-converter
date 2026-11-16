@@ -213,6 +213,7 @@
   <p class="empty" id="empty" hidden></p>
 </main>
 
+<script src="rates.js"></script>
 <script>
 (function () {
   'use strict';
@@ -232,19 +233,14 @@
     try { localStorage.setItem('theme', next); } catch (e) {}
   });
 
-  // ---- load rates: always revalidate, so a fresh refresh shows at once ----
-  async function loadRates() {
+  // ---- latest rates: the browser may hold a cached rates.js for up to
+  //      10 minutes, so always revalidate rates.json after the first paint ----
+  async function fetchLatest() {
     try {
       const r = await fetch('rates.json', { cache: 'no-cache' });
       if (r.ok) return await r.json();
-    } catch (e) { /* file:// or offline: fall through */ }
-    return new Promise(resolve => {
-      const s = document.createElement('script');
-      s.src = 'rates.js';
-      s.onload = () => resolve(window.__RATES__ || null);
-      s.onerror = () => resolve(null);
-      document.head.appendChild(s);
-    });
+    } catch (e) { /* file:// or offline: keep the bundled rates */ }
+    return null;
   }
 
   const fmt = (v, dp) => v.toLocaleString('en-US', { minimumFractionDigits: dp, maximumFractionDigits: dp });
@@ -278,21 +274,20 @@
       why: 'In a November 2026 test on 48 CDRs, 96% of conversions landed within ±0.25% of the real CDR price.' + shares + lag };
   }
 
-  function boot(rates) {
-    if (!rates || !rates.pairs) {
-      $('empty').textContent = 'Today’s rates didn’t load. Reload the page to try again.';
-      $('empty').hidden = false;
-      return;
+  function boot(first) {
+    let rates, pairs, usdcad, index;
+    function setData(r) {
+      rates = r;
+      pairs = Object.values(r.pairs);
+      usdcad = r.usdcad_spot;
+      // resolver: any spelling of either leg -> pair
+      index = new Map();
+      for (const p of pairs) {
+        for (const k of [p.cad_symbol, p.us_symbol, ...p.aliases, p.cad_symbol.replace(/\.(NE|TO)$/, '')])
+          if (!index.has(k.toUpperCase())) index.set(k.toUpperCase(), p);
+      }
     }
-    const pairs = Object.values(rates.pairs);
-    const usdcad = rates.usdcad_spot;
-
-    // resolver: any spelling of either leg -> pair
-    const index = new Map();
-    for (const p of pairs) {
-      for (const k of [p.cad_symbol, p.us_symbol, ...p.aliases, p.cad_symbol.replace(/\.(NE|TO)$/, '')])
-        if (!index.has(k.toUpperCase())) index.set(k.toUpperCase(), p);
-    }
+    setData(first);
     const resolve = q => index.get(q.trim().toUpperCase().replace(/\s+/g, '')) || null;
 
     let current = null, rel_ = null, edited = 'usd';
@@ -311,7 +306,7 @@
       $(to + 'tol').textContent = '± ' + (to === 'usd' ? 'US$' : 'CA$') + (tol < 0.01 ? '0.01' : fmt(tol, 2));
     }
 
-    function show(p) {
+    function show(p, keep) {
       current = p;
       rel_ = reliability(p, usdcad);
       $('result').hidden = false;
@@ -321,8 +316,8 @@
       $('pairkind').textContent = p.type === 'cdr' ? 'currency-hedged CDR' : 'cross-listed share';
       $('uslabel').textContent = p.us_symbol;
       $('cadlabel').textContent = p.cad_symbol;
-      $('usd').value = fmt(p.us_price, 2);
-      convert('usd');
+      if (keep) convert(edited);
+      else { $('usd').value = fmt(p.us_price, 2); convert('usd'); }
 
       const st = $('status');
       st.className = 'status ' + (rel_.ok ? 'ok' : 'approx');
@@ -421,12 +416,16 @@
     document.addEventListener('click', e => { if (!e.target.closest('.search-wrap')) closeSuggest(); });
 
     // ---- quick picks ----
-    for (const s of POPULAR.filter(s => index.has(s))) {
-      const b = document.createElement('button');
-      b.type = 'button'; b.dataset.s = s; b.textContent = s.replace(/\.(NE|TO)$/, '');
-      b.setAttribute('aria-pressed', 'false');
-      $('chips').appendChild(b);
+    function renderChips() {
+      $('chips').innerHTML = '';
+      for (const s of POPULAR.filter(s => index.has(s))) {
+        const b = document.createElement('button');
+        b.type = 'button'; b.dataset.s = s; b.textContent = s.replace(/\.(NE|TO)$/, '');
+        b.setAttribute('aria-pressed', String(!!current && current.cad_symbol === s));
+        $('chips').appendChild(b);
+      }
     }
+    renderChips();
     $('chips').addEventListener('click', e => {
       const b = e.target.closest('[data-s]');
       if (b) pick(index.get(b.dataset.s.toUpperCase()));
@@ -435,9 +434,32 @@
     const q = new URL(location).searchParams.get('s');
     const init = (q && resolve(q)) || index.get('NVDA.TO') || pairs[0];
     if (init) { sym.value = init.cad_symbol; show(init); }
+
+    // swap in newer rates without losing what the user typed
+    return function update(r) {
+      if (!r || !r.pairs || r.generated_at === rates.generated_at) return;
+      setData(r);
+      renderChips();
+      const p = current && index.get(current.cad_symbol.toUpperCase());
+      if (!p || $('result').hidden) return;
+      const stale = $('result').classList.contains('stale');
+      show(p, true);
+      if (stale) $('result').classList.add('stale');
+    };
   }
 
-  loadRates().then(boot);
+  function failed() {
+    $('empty').textContent = 'Today’s rates didn’t load. Reload the page to try again.';
+    $('empty').hidden = false;
+  }
+
+  const bundled = window.__RATES__ && window.__RATES__.pairs ? window.__RATES__ : null;
+  if (bundled) {
+    const update = boot(bundled);  // draw now
+    fetchLatest().then(update);    // then refresh if a newer run landed
+  } else {
+    fetchLatest().then(r => (r && r.pairs ? boot(r) : failed()));
+  }
 })();
 </script>
 </body>
