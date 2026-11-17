@@ -1,6 +1,6 @@
 window.__RATES__ = {
-  "generated_at": "2026-11-17T21:54 UTC",
-  "usdcad_spot": 1.42973,
+  "generated_at": "2026-11-17T22:40 UTC",
+  "usdcad_spot": 1.42914,
   "pairs": {
     "AAPL.TO": {
       "cad_symbol": "AAPL.TO",
@@ -59,7 +59,7 @@ window.__RATES__ = {
         "ADBE.NE"
       ],
       "cad_price": 8.94,
-      "us_price": 235.53,
+      "us_price": 235.55,
       "k": 0.037971,
       "k_method": "intraday",
       "k_minutes": 89,
