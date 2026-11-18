@@ -47,8 +47,10 @@ lands within arbitrage distance of spot FX, as it should.
 
 ## How it stays fresh
 
-A GitHub Actions cron refreshes [rates.json](rates.json) after the Toronto/New
-York open and again after the close (weekdays). Vercel serves the site and
+A GitHub Actions workflow refreshes [rates.json](rates.json) after the
+Toronto/New York open and again after the close (weekdays). Vercel Cron starts
+it on time through [api/dispatch-refresh.js](api/dispatch-refresh.js); GitHub's
+own schedule runs hours late, so it is only a backup. Vercel serves the site and
 redeploys on every commit, so each refresh goes live in about a minute.
 Vercel Web Analytics counts visits and referrers. The page itself is static —
 open it anywhere, type a price in either currency, get the other instantly.

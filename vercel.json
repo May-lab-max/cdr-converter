@@ -7,7 +7,30 @@
   "headers": [
     {
       "source": "/(rates\\.json|rates\\.js)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/dispatch-refresh",
+      "schedule": "0 14 * * 1-5"
+    },
+    {
+      "path": "/api/dispatch-refresh",
+      "schedule": "0 15 * * 1-5"
+    },
+    {
+      "path": "/api/dispatch-refresh",
+      "schedule": "0 21 * * 1-5"
+    },
+    {
+      "path": "/api/dispatch-refresh",
+      "schedule": "0 22 * * 1-5"
     }
   ]
 }
