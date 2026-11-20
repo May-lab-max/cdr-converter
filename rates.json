@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-20T01:45 UTC",
-  "usdcad_spot": 1.43381,
+  "generated_at": "2026-11-20T02:18 UTC",
+  "usdcad_spot": 1.43411,
   "pairs": {
     "AAPL.TO": {
       "cad_symbol": "AAPL.TO",
@@ -11,10 +11,10 @@
         "AAPL.NE"
       ],
       "cad_price": 48.93,
-      "us_price": 349.11,
+      "us_price": 349.1,
       "k": 0.140068,
       "k_method": "intraday",
-      "k_minutes": 152,
+      "k_minutes": 153,
       "k_band_bp": 6.8,
       "price_date": "2026-11-19"
     },
@@ -78,8 +78,8 @@
       "us_price": 489.165,
       "k": 0.02572,
       "k_method": "intraday",
-      "k_minutes": 374,
-      "k_band_bp": 14.2,
+      "k_minutes": 375,
+      "k_band_bp": 14.3,
       "price_date": "2026-11-19"
     },
     "AMAT.TO": {
@@ -91,11 +91,11 @@
         "AMAT.NE"
       ],
       "cad_price": 37.39,
-      "us_price": 338.85,
-      "k": 0.110251,
+      "us_price": 338.78,
+      "k": 0.11025,
       "k_method": "intraday",
-      "k_minutes": 126,
-      "k_band_bp": 19.9,
+      "k_minutes": 127,
+      "k_band_bp": 19.8,
       "price_date": "2026-11-19"
     },
     "AMZN.TO": {
@@ -108,9 +108,9 @@
       ],
       "cad_price": 29.24,
       "us_price": 257.145,
-      "k": 0.113538,
+      "k": 0.113537,
       "k_method": "intraday",
-      "k_minutes": 307,
+      "k_minutes": 308,
       "k_band_bp": 8.4,
       "price_date": "2026-11-19"
     },
@@ -208,7 +208,7 @@
       "us_price": 1093.67,
       "k": 0.044322,
       "k_method": "intraday",
-      "k_minutes": 99,
+      "k_minutes": 100,
       "k_band_bp": 7.4,
       "price_date": "2026-11-19"
     },
@@ -302,10 +302,10 @@
         "GOOG.NE"
       ],
       "cad_price": 42.97,
-      "us_price": 270.73,
+      "us_price": 270.77,
       "k": 0.158577,
       "k_method": "intraday",
-      "k_minutes": 369,
+      "k_minutes": 370,
       "k_band_bp": 6.4,
       "price_date": "2026-11-19"
     },
@@ -367,10 +367,10 @@
       ],
       "cad_price": 32.78,
       "us_price": 223.86,
-      "k": 0.146565,
+      "k": 0.146567,
       "k_method": "intraday",
-      "k_minutes": 69,
-      "k_band_bp": 10.5,
+      "k_minutes": 70,
+      "k_band_bp": 10.4,
       "price_date": "2026-11-19"
     },
     "INTC.TO": {
@@ -382,7 +382,7 @@
         "INTC.NE"
       ],
       "cad_price": 31.14,
-      "us_price": 55.68,
+      "us_price": 55.65,
       "k": 0.558809,
       "k_method": "intraday",
       "k_minutes": 274,
@@ -398,7 +398,7 @@
         "JNJ.NE"
       ],
       "cad_price": 33.96,
-      "us_price": 267.15,
+      "us_price": 267.12,
       "k": 0.127198,
       "k_method": "intraday",
       "k_minutes": 28,
@@ -526,7 +526,7 @@
         "MU.NE"
       ],
       "cad_price": 30.13,
-      "us_price": 690.12,
+      "us_price": 689.98,
       "k": 0.043638,
       "k_method": "intraday",
       "k_minutes": 377,
@@ -719,7 +719,7 @@
       "us_price": 138.17,
       "k": 0.166034,
       "k_method": "intraday",
-      "k_minutes": 370,
+      "k_minutes": 371,
       "k_band_bp": 8.1,
       "price_date": "2026-11-19"
     },
@@ -735,7 +735,7 @@
       "us_price": 374.43,
       "k": 0.0863,
       "k_method": "intraday",
-      "k_minutes": 260,
+      "k_minutes": 261,
       "k_band_bp": 10.1,
       "price_date": "2026-11-19"
     },
@@ -765,9 +765,9 @@
       ],
       "cad_price": 9.56,
       "us_price": 65.61,
-      "k": 0.14563,
+      "k": 0.145632,
       "k_method": "intraday",
-      "k_minutes": 163,
+      "k_minutes": 165,
       "k_band_bp": 10.4,
       "price_date": "2026-11-19"
     },
@@ -783,7 +783,7 @@
       "us_price": 330.32,
       "k": 0.045502,
       "k_method": "intraday",
-      "k_minutes": 190,
+      "k_minutes": 191,
       "k_band_bp": 11.7,
       "price_date": "2026-11-19"
     },
@@ -843,10 +843,10 @@
       ],
       "cad_price": 52.32,
       "us_price": 126.05,
-      "k": 0.41527,
+      "k": 0.415271,
       "k_method": "intraday",
-      "k_minutes": 155,
-      "k_band_bp": 8.4,
+      "k_minutes": 156,
+      "k_band_bp": 8.5,
       "price_date": "2026-11-19"
     },
     "XOM.TO": {
@@ -886,11 +886,11 @@
       "name": "TD Bank",
       "aliases": [],
       "cad_price": 165.27,
-      "us_price": 115.12,
-      "k": 1.432337,
+      "us_price": 115.13,
+      "k": 1.432334,
       "k_method": "intraday",
-      "k_minutes": 365,
-      "k_band_bp": 12.2,
+      "k_minutes": 366,
+      "k_band_bp": 12.4,
       "price_date": "2026-11-19"
     },
     "RY.TO": {
@@ -901,9 +901,9 @@
       "aliases": [],
       "cad_price": 269.45,
       "us_price": 187.78,
-      "k": 1.43227,
+      "k": 1.432268,
       "k_method": "intraday",
-      "k_minutes": 334,
+      "k_minutes": 335,
       "k_band_bp": 12.4,
       "price_date": "2026-11-19"
     },
@@ -943,9 +943,9 @@
       "aliases": [],
       "cad_price": 152.29,
       "us_price": 106.01,
-      "k": 1.432334,
+      "k": 1.432387,
       "k_method": "intraday",
-      "k_minutes": 321,
+      "k_minutes": 323,
       "k_band_bp": 13.3,
       "price_date": "2026-11-19"
     },
@@ -957,7 +957,7 @@
       "aliases": [],
       "cad_price": 65.99,
       "us_price": 45.97,
-      "k": 1.432211,
+      "k": 1.432237,
       "k_method": "intraday",
       "k_minutes": 385,
       "k_band_bp": 12.3,
@@ -971,9 +971,9 @@
       "aliases": [],
       "cad_price": 90.11,
       "us_price": 62.81,
-      "k": 1.432308,
+      "k": 1.432306,
       "k_method": "intraday",
-      "k_minutes": 367,
+      "k_minutes": 368,
       "k_band_bp": 11.5,
       "price_date": "2026-11-19"
     },
@@ -985,9 +985,9 @@
       "aliases": [],
       "cad_price": 91.89,
       "us_price": 64.01,
-      "k": 1.432115,
+      "k": 1.432097,
       "k_method": "intraday",
-      "k_minutes": 382,
+      "k_minutes": 383,
       "k_band_bp": 12.1,
       "price_date": "2026-11-19"
     },
@@ -999,9 +999,9 @@
       "aliases": [],
       "cad_price": 64.1,
       "us_price": 44.715,
-      "k": 1.43207,
+      "k": 1.432066,
       "k_method": "intraday",
-      "k_minutes": 384,
+      "k_minutes": 385,
       "k_band_bp": 11.5,
       "price_date": "2026-11-19"
     },
@@ -1013,9 +1013,9 @@
       "aliases": [],
       "cad_price": 39.0,
       "us_price": 27.16,
-      "k": 1.432126,
+      "k": 1.432103,
       "k_method": "intraday",
-      "k_minutes": 383,
+      "k_minutes": 385,
       "k_band_bp": 12.2,
       "price_date": "2026-11-19"
     },
@@ -1027,10 +1027,10 @@
       "aliases": [],
       "cad_price": 60.57,
       "us_price": 42.22,
-      "k": 1.432087,
+      "k": 1.432075,
       "k_method": "intraday",
-      "k_minutes": 380,
-      "k_band_bp": 12.3,
+      "k_minutes": 381,
+      "k_band_bp": 12.2,
       "price_date": "2026-11-19"
     },
     "SLF.TO": {
@@ -1041,7 +1041,7 @@
       "aliases": [],
       "cad_price": 100.65,
       "us_price": 70.12,
-      "k": 1.432359,
+      "k": 1.432354,
       "k_method": "intraday",
       "k_minutes": 251,
       "k_band_bp": 12.8,
@@ -1055,9 +1055,9 @@
       "aliases": [],
       "cad_price": 131.11,
       "us_price": 91.4,
-      "k": 1.432276,
+      "k": 1.432266,
       "k_method": "intraday",
-      "k_minutes": 379,
+      "k_minutes": 381,
       "k_band_bp": 11.8,
       "price_date": "2026-11-19"
     },
@@ -1069,10 +1069,10 @@
       "aliases": [],
       "cad_price": 178.66,
       "us_price": 124.61,
-      "k": 1.432009,
+      "k": 1.431991,
       "k_method": "intraday",
-      "k_minutes": 364,
-      "k_band_bp": 12.3,
+      "k_minutes": 366,
+      "k_band_bp": 12.2,
       "price_date": "2026-11-19"
     },
     "TECK-B.TO": {
@@ -1085,10 +1085,10 @@
       ],
       "cad_price": 73.96,
       "us_price": 51.58,
-      "k": 1.432165,
+      "k": 1.432154,
       "k_method": "intraday",
-      "k_minutes": 383,
-      "k_band_bp": 12.2,
+      "k_minutes": 385,
+      "k_band_bp": 12.1,
       "price_date": "2026-11-19"
     },
     "AEM.TO": {
@@ -1099,9 +1099,9 @@
       "aliases": [],
       "cad_price": 227.17,
       "us_price": 158.25,
-      "k": 1.432494,
+      "k": 1.432452,
       "k_method": "intraday",
-      "k_minutes": 350,
+      "k_minutes": 352,
       "k_band_bp": 14.2,
       "price_date": "2026-11-19"
     },
@@ -1113,9 +1113,9 @@
       "aliases": [],
       "cad_price": 259.11,
       "us_price": 180.37,
-      "k": 1.432341,
+      "k": 1.432334,
       "k_method": "intraday",
-      "k_minutes": 332,
+      "k_minutes": 333,
       "k_band_bp": 12.1,
       "price_date": "2026-11-19"
     },
@@ -1127,9 +1127,9 @@
       "aliases": [],
       "cad_price": 103.55,
       "us_price": 72.24,
-      "k": 1.432395,
+      "k": 1.43235,
       "k_method": "intraday",
-      "k_minutes": 351,
+      "k_minutes": 352,
       "k_band_bp": 11.7,
       "price_date": "2026-11-19"
     },
@@ -1158,7 +1158,7 @@
       "k": 1.432435,
       "k_method": "intraday",
       "k_minutes": 330,
-      "k_band_bp": 13.7,
+      "k_band_bp": 13.6,
       "price_date": "2026-11-19"
     }
   }
