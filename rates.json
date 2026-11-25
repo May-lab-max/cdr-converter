@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-24T23:38 UTC",
-  "usdcad_spot": 1.4271,
+  "generated_at": "2026-11-25T03:31 UTC",
+  "usdcad_spot": 1.4266,
   "pairs": {
     "AAPL.TO": {
       "cad_symbol": "AAPL.TO",
@@ -189,7 +189,7 @@
         "COIN.NE"
       ],
       "cad_price": 6.15,
-      "us_price": 102.345,
+      "us_price": 102.35,
       "k": 0.060053,
       "k_method": "intraday",
       "k_minutes": 151,
