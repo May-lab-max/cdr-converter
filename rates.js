@@ -1,6 +1,6 @@
 window.__RATES__ = {
-  "generated_at": "2026-11-25T23:20 UTC",
-  "usdcad_spot": 1.42102,
+  "generated_at": "2026-11-26T02:47 UTC",
+  "usdcad_spot": 1.42147,
   "pairs": {
     "AAPL.TO": {
       "cad_symbol": "AAPL.TO",
@@ -720,7 +720,7 @@ window.__RATES__ = {
       "k": 0.166065,
       "k_method": "intraday",
       "k_minutes": 383,
-      "k_band_bp": 12.5,
+      "k_band_bp": 12.4,
       "price_date": "2026-11-25"
     },
     "TSLA.TO": {
@@ -764,7 +764,7 @@ window.__RATES__ = {
         "UBER.NE"
       ],
       "cad_price": 9.65,
-      "us_price": 66.36,
+      "us_price": 66.35,
       "k": 0.145432,
       "k_method": "intraday",
       "k_minutes": 123,
@@ -843,7 +843,7 @@ window.__RATES__ = {
       ],
       "cad_price": 54.72,
       "us_price": 131.94,
-      "k": 0.414799,
+      "k": 0.414795,
       "k_method": "intraday",
       "k_minutes": 133,
       "k_band_bp": 5.3,
@@ -904,7 +904,7 @@ window.__RATES__ = {
       "k": 1.420241,
       "k_method": "intraday",
       "k_minutes": 367,
-      "k_band_bp": 16.1,
+      "k_band_bp": 16.0,
       "price_date": "2026-11-25"
     },
     "BNS.TO": {
@@ -915,7 +915,7 @@ window.__RATES__ = {
       "aliases": [],
       "cad_price": 119.71,
       "us_price": 84.29,
-      "k": 1.420336,
+      "k": 1.420323,
       "k_method": "intraday",
       "k_minutes": 373,
       "k_band_bp": 15.6,
@@ -988,7 +988,7 @@ window.__RATES__ = {
       "k": 1.420387,
       "k_method": "intraday",
       "k_minutes": 384,
-      "k_band_bp": 15.0,
+      "k_band_bp": 15.1,
       "price_date": "2026-11-25"
     },
     "CNQ.TO": {
@@ -999,7 +999,7 @@ window.__RATES__ = {
       "aliases": [],
       "cad_price": 64.74,
       "us_price": 45.56,
-      "k": 1.420244,
+      "k": 1.42025,
       "k_method": "intraday",
       "k_minutes": 385,
       "k_band_bp": 14.6,
@@ -1027,7 +1027,7 @@ window.__RATES__ = {
       "aliases": [],
       "cad_price": 60.02,
       "us_price": 42.26,
-      "k": 1.420176,
+      "k": 1.420169,
       "k_method": "intraday",
       "k_minutes": 380,
       "k_band_bp": 15.6,
@@ -1055,10 +1055,10 @@ window.__RATES__ = {
       "aliases": [],
       "cad_price": 132.46,
       "us_price": 93.19,
-      "k": 1.420304,
+      "k": 1.420318,
       "k_method": "intraday",
       "k_minutes": 381,
-      "k_band_bp": 15.1,
+      "k_band_bp": 15.0,
       "price_date": "2026-11-25"
     },
     "CNR.TO": {
@@ -1069,7 +1069,7 @@ window.__RATES__ = {
       "aliases": [],
       "cad_price": 179.66,
       "us_price": 126.4,
-      "k": 1.42035,
+      "k": 1.420352,
       "k_method": "intraday",
       "k_minutes": 361,
       "k_band_bp": 14.6,
@@ -1088,7 +1088,7 @@ window.__RATES__ = {
       "k": 1.420543,
       "k_method": "intraday",
       "k_minutes": 385,
-      "k_band_bp": 14.9,
+      "k_band_bp": 15.1,
       "price_date": "2026-11-25"
     },
     "AEM.TO": {
@@ -1099,10 +1099,10 @@ window.__RATES__ = {
       "aliases": [],
       "cad_price": 229.3,
       "us_price": 161.2,
-      "k": 1.420482,
+      "k": 1.420515,
       "k_method": "intraday",
       "k_minutes": 381,
-      "k_band_bp": 16.3,
+      "k_band_bp": 16.2,
       "price_date": "2026-11-25"
     },
     "WCN.TO": {
@@ -1113,7 +1113,7 @@ window.__RATES__ = {
       "aliases": [],
       "cad_price": 266.45,
       "us_price": 187.27,
-      "k": 1.420352,
+      "k": 1.420351,
       "k_method": "intraday",
       "k_minutes": 317,
       "k_band_bp": 15.3,
@@ -1144,7 +1144,7 @@ window.__RATES__ = {
       "k": 1.420429,
       "k_method": "intraday",
       "k_minutes": 385,
-      "k_band_bp": 16.1,
+      "k_band_bp": 16.0,
       "price_date": "2026-11-25"
     },
     "BAM.TO": {
@@ -1155,7 +1155,7 @@ window.__RATES__ = {
       "aliases": [],
       "cad_price": 74.1,
       "us_price": 52.12,
-      "k": 1.420284,
+      "k": 1.420295,
       "k_method": "intraday",
       "k_minutes": 357,
       "k_band_bp": 17.5,
