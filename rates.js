@@ -1,5 +1,5 @@
 window.__RATES__ = {
-  "generated_at": "2026-11-27T22:18 UTC",
+  "generated_at": "2026-11-27T22:58 UTC",
   "usdcad_spot": 1.4245,
   "pairs": {
     "AAPL.TO": {
@@ -578,7 +578,7 @@ window.__RATES__ = {
       "k": 0.22186,
       "k_method": "intraday",
       "k_minutes": 202,
-      "k_band_bp": 5.9,
+      "k_band_bp": 6.2,
       "price_date": "2026-11-27"
     },
     "ORCL.NE": {
@@ -873,7 +873,7 @@ window.__RATES__ = {
       "aliases": [],
       "cad_price": 202.9,
       "us_price": 141.78,
-      "k": 1.424462,
+      "k": 1.424466,
       "k_method": "intraday",
       "k_minutes": 205,
       "k_band_bp": 7.6,
@@ -999,7 +999,7 @@ window.__RATES__ = {
       "aliases": [],
       "cad_price": 66.38,
       "us_price": 46.17,
-      "k": 1.424779,
+      "k": 1.424784,
       "k_method": "intraday",
       "k_minutes": 191,
       "k_band_bp": 5.7,
@@ -1127,7 +1127,7 @@ window.__RATES__ = {
       "aliases": [],
       "cad_price": 108.71,
       "us_price": 76.66,
-      "k": 1.424428,
+      "k": 1.424436,
       "k_method": "intraday",
       "k_minutes": 155,
       "k_band_bp": 5.4,
@@ -1155,7 +1155,7 @@ window.__RATES__ = {
       "aliases": [],
       "cad_price": 76.64,
       "us_price": 53.56,
-      "k": 1.424794,
+      "k": 1.424795,
       "k_method": "intraday",
       "k_minutes": 188,
       "k_band_bp": 5.8,
