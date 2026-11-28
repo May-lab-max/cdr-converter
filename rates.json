@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-27T22:58 UTC",
-  "usdcad_spot": 1.4245,
+  "generated_at": "2026-11-28T02:39 UTC",
+  "usdcad_spot": 1.4248,
   "pairs": {
     "AAPL.TO": {
       "cad_symbol": "AAPL.TO",
@@ -27,7 +27,7 @@
         "ABBV.NE"
       ],
       "cad_price": 41.58,
-      "us_price": 300.28,
+      "us_price": 292.75,
       "k": 0.13846,
       "k_method": "intraday",
       "k_minutes": 39,
@@ -578,7 +578,7 @@
       "k": 0.22186,
       "k_method": "intraday",
       "k_minutes": 202,
-      "k_band_bp": 6.2,
+      "k_band_bp": 5.9,
       "price_date": "2026-11-27"
     },
     "ORCL.NE": {
@@ -873,7 +873,7 @@
       "aliases": [],
       "cad_price": 202.9,
       "us_price": 141.78,
-      "k": 1.424466,
+      "k": 1.424462,
       "k_method": "intraday",
       "k_minutes": 205,
       "k_band_bp": 7.6,
@@ -999,7 +999,7 @@
       "aliases": [],
       "cad_price": 66.38,
       "us_price": 46.17,
-      "k": 1.424784,
+      "k": 1.424779,
       "k_method": "intraday",
       "k_minutes": 191,
       "k_band_bp": 5.7,
@@ -1127,7 +1127,7 @@
       "aliases": [],
       "cad_price": 108.71,
       "us_price": 76.66,
-      "k": 1.424436,
+      "k": 1.424428,
       "k_method": "intraday",
       "k_minutes": 155,
       "k_band_bp": 5.4,
@@ -1155,7 +1155,7 @@
       "aliases": [],
       "cad_price": 76.64,
       "us_price": 53.56,
-      "k": 1.424795,
+      "k": 1.424794,
       "k_method": "intraday",
       "k_minutes": 188,
       "k_band_bp": 5.8,
